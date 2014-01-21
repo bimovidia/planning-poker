@@ -1,4 +1,4 @@
 <span class="fa">
-  <%= raw estimation(story) %>
+  <%= raw estimation(story) if show_estimation_icons?(story) %>
 </span>
 <%= estimate(story) %>

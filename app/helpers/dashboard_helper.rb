@@ -11,8 +11,23 @@ module DashboardHelper
     end 
   end
 
+  def bar_icons(size)
+    '<span class="icon-bar"></span>' * size
+  end
+
+  def show_estimation_icons?(story)
+    story.estimate.to_i <= 5
+  end
+
+  def small_strong_text(text)
+    "<small><strong>#{text}</strong></small>"
+  end
+
+
   def estimation(story)
-    '<span class="icon-bar"></span>' * story.estimate if story.estimate and story.estimate > 0
+    if estimated?(story)
+      show_estimation_icons?(story) ? bar_icons(story.estimate) : small_strong_text(story.estimate)
+    end
   end
 
   def estimation_class(story)
@@ -68,6 +83,10 @@ module DashboardHelper
 
   def estimateable?(story)
     story.estimate and story.estimate.to_i < 0
+  end
+
+  def estimated?(story)
+    story.estimate and story.estimate.to_i > 0
   end
 
   def estimate(story)

@@ -1,0 +1,35 @@
+<%= render 'overlay' %>
+
+<div id="wrapper">
+  <div id="header" class="clearfix">
+    <div class="row">
+      <h1 class="col-md-10">
+        <span class="fa-stack logo">
+          <i class="fa fa-circle-o fa-stack-2x"></i>
+          <i class="fa fa-heart fa-stack-1x"></i>
+        </span>
+        Planning<span>Poker</span>
+      </h1>
+      <div id="header-links" class="text-right col-md-2">
+        <%= link_to logout_path, method: :delete, class: 'white header-links' do %>
+          <i class="fa fa-sign-out"></i> <%= t('signout') %>
+        <% end %>
+      </div>
+    </div>
+    <%= render 'menu', projects: @projects %>
+  </div>
+  <div id="sub-menu" class="row">
+    <ul>
+      <li id="filter-all" class="selected">
+        <%= t('all').upcase %>
+      </li>
+      <li id="filter-unestimated">
+        <%= t('unestimated').upcase %>
+      </li>
+    </ul>
+  </div>
+
+  <div id="content" class="col-md-12">
+    <%= yield %>
+  </div>
+</div>

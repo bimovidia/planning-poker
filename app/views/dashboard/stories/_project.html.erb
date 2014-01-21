@@ -1,0 +1,58 @@
+<div id="project-info" class="widget">  
+  <h2 class="titles">
+    <%= t('projects.info') %>
+  </h2>
+
+  <ul>
+    <li>
+      <div class="row">
+        <div class="col-md-4 story-labels">
+          <%= t('projects.id') %>
+        </div>
+        <div class="col-md-8">
+          <%= project.id %>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="row">
+        <div class="col-md-4 story-labels">
+          <%= t('projects.name') %>
+        </div>
+        <div class="col-md-8">
+          <%= project.name %>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="row">
+        <div class="col-md-4 story-labels">
+          <%= t('projects.labels') %>
+        </div>
+        <div class="col-md-8">
+          <%= project.labels.split(',').join(', ') %>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="row">
+        <div class="col-md-4 story-labels">
+          <%= t('projects.scheme') %>
+        </div>
+        <div class="col-md-8">
+          <%= project.velocity_scheme %>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="row">
+        <div class="col-md-4 story-labels">
+          <%= t('projects.scale') %>
+        </div>
+        <div class="col-md-8">
+          <%= project.point_scale.split(',').join(', ') %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

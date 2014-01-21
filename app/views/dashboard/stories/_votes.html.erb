@@ -1,0 +1,9 @@
+<% votes = Vote.where(story_id: story_id) %>
+
+<ul>
+  <% if votes.present? %>
+    <% votes.each do |vote| %>
+      <%= render 'dashboard/stories/vote', story_id: story_id, vote: (reveal ? vote.vote : voting(vote)), user: vote.user, reveal: reveal %>
+    <% end %>
+  <% end %>
+</ul>

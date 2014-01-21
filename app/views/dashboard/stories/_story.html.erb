@@ -1,0 +1,43 @@
+<div class="story-detail" style="display:none">
+
+  <%= form_tag update_path, id: "form-#{story.id}", class: 'clearfix', remote: true do %>
+
+    <div class="col-md-12">
+      <%= link_to detail_path(story.id, 'collapse', encoded_user), id: "collapse-#{story.id}", remote: true do %>
+        <span class="fa fa-play fa-rotate-90 collapse"></span>
+      <% end %>
+
+      <div class="form-group project-name">
+        <%= text_area_tag 'name', story.name, name: 'story[name]', class: 'form-control', rows: 2, disabled: state_accepted?(story) %>
+        <%= hidden_field_tag 'story_id', story.id, name: 'story_id' %>
+        <%= hidden_field_tag 'project_id', project.id, name: 'project_id' %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="col-md-4">
+        <%= render 'dashboard/stories/info', story: story %>
+      </div>
+
+      <div class="col-md-8">
+        <div class="form-group">
+          <%= text_area_tag 'description', story.description, name: 'story[description]', class: 'form-control', rows: 10, disabled: state_accepted?(story) %>
+        </div>
+      </div>
+    </div>
+
+    <% unless unestimateable?(story) %>
+      <div id="votes-<%= story.id %>" class="col-md-12">
+        <%= render 'dashboard/stories/cards', project: project, story: story, reveal: false %>
+      </div>
+
+      <%= hidden_field_tag 'estimate', nil, name: 'story[estimate]' %>
+
+      <div class="col-md-12 story-actions">
+        <%= submit_tag t('save'), class: 'btn btn-success' %>
+        <%= link_to t('cancel'), detail_path(story.id, 'collapse', encoded_user), remote: true, class: 'btn btn-danger' %>
+      </div>
+    <% end %>
+
+  <% end %>
+</div>

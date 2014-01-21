@@ -1,0 +1,12 @@
+<% broadcast '/planning-poker/story/add-vote' do %>
+
+  if ($('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= @resource[:user] %>"]').length) {
+    $('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= @resource[:user] %>"]').remove();
+  }
+
+  $('#cards-<%= @resource[:story_id] %> ul').append(
+    "<%= j render('dashboard/stories/vote', story_id: @resource[:story_id], 
+    vote: false, user: @resource[:user], reveal: false) %>"
+  );
+
+<% end %>

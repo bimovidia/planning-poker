@@ -1,0 +1,14 @@
+<% broadcast '/planning-poker/story/reset-vote' do %>
+
+  if ($('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= current_user[:username] %>"]').length) {
+    $('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= current_user[:username] %>"]').remove();
+  }
+
+  $('#cards-<%= @resource[:story_id] %> ul').append(
+    "<%= j render('dashboard/stories/vote', story_id: @resource[:story_id], 
+      vote: nil, user: @resource[:user], reveal: false) %>"
+  );
+
+  $('#form-<%= @resource[:story_id] %>').find('input#estimate').val('');
+
+<% end %>

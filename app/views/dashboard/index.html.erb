@@ -1,0 +1,12 @@
+<div id="stories-list" class="stories col-md-8">
+  <h2 class="titles">
+    <%= t('story').pluralize %>
+  </h2>
+  <div id="stories">
+    <%= render 'dashboard/stories/list', project: @projects.first %>
+  </div>
+</div>
+
+<div id="sidebar" class="col-md-4">
+  <%= render 'dashboard/stories/project', project: @projects.first %>
+</div>

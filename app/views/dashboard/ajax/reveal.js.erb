@@ -1,0 +1,10 @@
+<% broadcast '/planning-poker/story/reveal-votes' do %>
+  $('#cards-<%= @resource[:story_id] %>').html(
+    "<%= j render('dashboard/stories/votes', story_id: @resource[:story_id], reveal: true) %>"
+  );
+
+  $('.btn-votes a').removeClass('active');
+  $('#form-<%= @resource[:story_id] %>').find('input#estimate').val('');
+
+  window.selectCard();
+<% end %>

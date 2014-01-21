@@ -1,0 +1,12 @@
+<% broadcast '/planning-poker/story/select-vote' do %>
+
+  var vote = $('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= @resource[:username] %>"] span');
+
+  $('.card-revealed').removeClass('card-selected')
+
+  vote.addClass('card-selected').closest('form').find('input#estimate').prop(
+    'value',
+    vote.find('.vote-value').text().trim()
+  )
+
+<% end %>

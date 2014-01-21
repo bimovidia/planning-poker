@@ -1,0 +1,18 @@
+<li class="user-vote" data-vote="<%= story_id %>-<%= user %>">
+  <span class="<%= card_class(vote, reveal) %>">
+    <div class="vote-value">
+      <% if vote %>
+        <%= vote %>
+      <% else %>
+        <% if vote.nil? %>
+          <span class="fa fa-ban"></span>
+        <% else %>
+          ?
+        <% end %>
+      <% end %>
+    </div>
+    <div class="voter">
+      <%= nickname user %>
+    </div>
+  </span>
+</li>

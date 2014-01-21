@@ -1,0 +1,9 @@
+<div id="flash-container" class="flash-top-right">
+  <% flash.each do |name, msg| %>
+    <div class="flash flash-<%= name %>" data-dismiss="alert">
+      <div class="flash-message">
+        <%= msg %>
+      </div>
+    </div>
+  <% end %>
+</div>

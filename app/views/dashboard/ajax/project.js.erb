@@ -1,0 +1,20 @@
+$('#stories').html("<%= j render('dashboard/stories/list', project: @project) %>");
+$('#sidebar').html("<%= j render('dashboard/stories/project', project: @project) %>");
+
+$('#project-<%= @project.id %>').addClass('active');
+$('.projects-list').not('#project-<%= @project.id %>').removeClass('active');
+
+if ($('#menu .active').parents('ul').prop('id') != 'menu') {
+  $('#more-projects').addClass('active');
+  $('#more-projects .dropdown-toggle').html('<%= @project.name %> <span class="caret"></span>');
+} else {
+  $('#more-projects').removeClass('active');
+  $('#more-projects .dropdown-toggle').html('<%= t("projects.more") %> <span class="caret"></span>');
+}
+
+$('#menu-compact').html('<%= @project.name %> <span class="caret"></span>');
+$('.project-dropdown').removeClass('open')
+
+window.hideOverlay();
+window.activeVote();
+window.filterState('#sub-menu li.selected');

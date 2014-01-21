@@ -1,0 +1,23 @@
+<% project.stories.all.each do |story| %>
+  <div id="story-<%= story.id %>" class="story clearfix story-<%= story.current_state %> story-<%= story.story_type %> story-<%= estimation_class(story) %>">
+    <div class="story-overview clearfix">
+      <div class="pull-left story-icons">
+        <%= link_to detail_path(story.id, 'expand', encoded_user), id: "expand-#{story.id}", remote: true do %>
+          <span class="fa fa-play story-icon expand"></span>
+        <% end %>
+        <span class="<%= icon(story) %> story-icon"></span>
+        <span class="fa story-icon">
+          <%= raw estimation(story) %>
+        </span>
+      </div>
+      <div class="pull-left story-description">
+        <%= story.name %> 
+        <span class="<%= state(story) %>">
+          <%= story.current_state %>
+        </span>
+      </div>
+    </div>
+
+    <%= render 'dashboard/stories/story', project: project, story: story %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<div class="col-md-12">
+  <div class="dropdown project-dropdown">
+    <button class="btn dropdown-toggle" type="button" id="menu-compact" data-toggle="dropdown">
+      <%= @projects.first.name %>
+      <span class="caret"></span>
+    </button>
+    <ul id="menu-compact-list" class="dropdown-menu" role="menu" aria-labelledby="menu-compact-list">
+      <% projects.each do |project| %>
+        <li role="presentation">
+          <%= link_to(project.name, project_path(project.id), remote: true, role: 'menuitem') %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<ul id="menu" class="clearfix">
+  <% projects.first(5).each_with_index do |project, index| %>
+    <li id ="project-<%= project.id %>" class="projects-list<%= ' active' if index.zero? %>">
+      <%= link_to(project.name, project_path(project.id), remote: true) %>
+    </li>
+  <% end %>
+
+  <% if projects.size > 5 %>
+    <li id="more-projects">
+      <div class="btn-group more-projects project-dropdown">
+        <span class="dropdown-toggle" data-toggle="dropdown">
+          <%= t('projects.more') %>
+          <span class="caret"></span>
+        </span>
+        <ul class="dropdown-menu">
+          <% projects.drop(5).each do |project| %>
+            <li id ="project-<%= project.id %>" class="projects-list">
+              <%= link_to(project.name, project_path(project.id), remote: true) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </li>
+  <% end %>
+</ul>

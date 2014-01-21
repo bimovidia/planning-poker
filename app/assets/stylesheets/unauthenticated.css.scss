@@ -1,0 +1,43 @@
+#unauthenticated {
+  background-color: #7DC266;
+  color: #888;
+
+  #header {
+    background: #FFF;
+    padding: 5px 20px;
+
+    h1 {
+      font-family: 'Rokkitt', serif;
+      margin: 0;
+      padding: 0;
+      font-size: 36px;
+      color: #7DC266;
+
+      span {
+        color: #C72543;
+
+        &.logo {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  #signin-box {
+    background-color: #E9E9E9;
+    padding: 25px 30px;
+    margin-top: 10%;
+
+    h1 {
+      background-image: asset-url('pivotal-tracker.png');
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      display: block;
+      width: 280px;
+      height: 45px;
+      margin: 20px 0;
+      text-indent: -999em;
+      overflow: hidden;
+    }
+  }
+}

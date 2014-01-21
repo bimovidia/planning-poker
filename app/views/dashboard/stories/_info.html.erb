@@ -1,0 +1,63 @@
+<ul class="story-info">
+  <li>
+    <div class="row">
+      <div class="col-md-6 story-labels">
+        <%= t('stories.id').upcase %>
+      </div>
+      <div class="col-md-6 text-right">
+        <%= story.id %>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="row">
+      <div class="col-md-6 story-labels">
+        <%= t('stories.type').upcase %>
+      </div>
+      <div class="col-md-6 text-right">
+        <span class="<%= icon(story) %> story-icon"></span>
+        <%= story.story_type.capitalize %>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="row">
+      <div class="col-md-6 story-labels">
+        <%= t('stories.points').upcase %>
+      </div>
+      <div id="estimate-<%= story.id %>" class="col-md-6 text-right">
+        <%= render 'dashboard/stories/estimate', story: story %>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="row">
+      <div class="col-md-6 story-labels">
+        <%= t('stories.state').upcase %>
+      </div>
+      <div class="col-md-6 text-right">
+        <%= story.current_state.capitalize %>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="row">
+      <div class="col-md-6 story-labels">
+        <%= t('requester').upcase %>
+      </div>
+      <div class="col-md-6 text-right">
+        <%= story.requested_by %>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="row">
+      <div class="col-md-6 story-labels">
+        <%= t('owner').upcase %>
+      </div>
+      <div class="col-md-6 text-right">
+        <%= story.owned_by %>
+      </div>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,37 @@
+<% broadcast '/planning-poker/story/update-story' do %>
+
+  window.flashNow(
+    'notice',
+    "<%= t('flashes.stories.update', id: @resource.id) %>"
+  );
+
+  $('#story-<%= @resource.id %> .story-detail').addClass('updated');
+
+  setTimeout(function(){
+    $('#story-<%= @resource.id %> .story-detail').removeClass('updated');
+  }, 5000);
+
+  $('#story-<%= @resource.id %> textarea#name').html(
+    '<%= j @resource.name %>'
+  );
+
+  $('#story-<%= @resource.id %> textarea#description').html(
+    '<%= j @resource.description %>'
+  );
+
+  <% if @resource.estimate.to_i >= 0 %>
+
+    $('#estimate-<%= @resource.id %>').html(
+      "<%= j render('dashboard/stories/estimate', story: @resource) %>"
+    );
+
+    $('#votes-<%= @resource.id %>').remove();
+    $('#form-<%= @resource.id %> input#estimate').remove();
+    $('#form-<%= @resource.id %> .story-actions').remove();
+
+    $('#story-<%= @resource.id %> textarea#name, #story-<%= @resource.id %> textarea#description')
+      .prop('disabled', 'disabled');
+
+  <% end %>
+
+<% end %>

@@ -1,12 +1,14 @@
 # Pivotal Tracker: Planning Poker
 
+![Pivotal Tracker: Planning Poker](http://bimovidia.com/images/planning-poker.png)
+
 Planning poker, also called Scrum poker, is a consensus-based technique for estimating, mostly used to estimate effort or relative size of user stories in software development. In planning poker, members of the group make estimates by playing numbered cards in the app, instead of speaking them aloud. The cards are revealed, and the estimates are then discussed. By hiding the figures in this way, the group can avoid the cognitive bias of anchoring, where the first number spoken aloud sets a precedent for subsequent estimates.
 
 ## Features
 * Authentication from Pivotal Tracker
 * Displays all user's projects in Pivotal Tracker
 * Push Notifications when playing cards
-* Bootstrap + Font-Awesome for responsive design
+* Bootstrap + Font-Awesome for Responsive Design
 
 ## Dependencies
 * Ruby 2.0.0 or later
@@ -72,8 +74,23 @@ Run the application locally with:
 rails s
 ```
 
-## Contributing
+##Rule of the Game
+Once you have the application set up, you can:
 
+* Login using your Pivotal Tracker credential
+* Click any project name in the header menu that has unestimated stories
+* Click on **UNESTIMATED** in the submenu to see the list of unestimated stories for that project
+* Click / Expand the story to start the planning poker session
+
+Each estimator can select any point depending on the story scale point setting in pivotal tracker. The values represent the number of story points, ideal days, or other units in which the team agrees to estimate.
+
+The estimators discuss the feature, asking questions of the product owner as needed. When the feature has been fully discussed, each estimator privately selects one card to represent his or her estimate.
+
+Once all selections are in, any estimator can then hit the **REVEAL** button to reveal the cards at the same time.
+
+If all estimators selected the same value, that becomes the estimate. If not, the estimators discuss their estimates. The high and low estimators should especially share their reasons. After further discussion, once the estimation score has been agreed on, any estimator can then click on any card representing that number. After that, any user can update the story name and description (if necessary) and then hit **SAVE** to update the story in Pivotal Tracker.
+
+## Contributing
 Contributions are encouraged. You can contribute in many ways. For example, you might:
 
 * add documentation and "how-to" articles to the README or Wiki

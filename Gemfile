@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
+gem 'thin'
+gem 'faye'
 
 # Assets
 gem 'jquery-rails'

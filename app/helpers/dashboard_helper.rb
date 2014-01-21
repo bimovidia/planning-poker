@@ -19,14 +19,14 @@ module DashboardHelper
     story.estimate.to_i <= 5
   end
 
-  def small_text(text)
-    "<small>#{text}</small>"
+  def small_strong_text(text)
+    "<small><strong>#{text}</strong></small>"
   end
 
 
   def estimation(story)
     if estimated?(story)
-      show_estimation_icons?(story) ? bar_icons(story.estimate) : small_text(story.estimate)
+      show_estimation_icons?(story) ? bar_icons(story.estimate) : small_strong_text(story.estimate)
     end
   end
 

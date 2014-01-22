@@ -1,5 +1,6 @@
 class Vote
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :story_id, type: Integer
   field :vote,     type: Integer

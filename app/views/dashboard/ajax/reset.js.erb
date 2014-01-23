@@ -11,4 +11,6 @@
 
   $('#form-<%= @resource[:story_id] %>').find('input#estimate').val('');
 
+  $('#vote-<%= @resource[:story_id] %> .reveal').attr('disabled','disabled');
+
 <% end %>

@@ -106,4 +106,8 @@ module DashboardHelper
     user.split('@').first.split('.').first
   end
 
+  def current_user_has_voted?(story)
+    Vote.find_by(story_id: story.id, user: current_user[:username]).present?
+  end
+
 end

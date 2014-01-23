@@ -9,4 +9,6 @@
     vote: false, user: @resource[:user], reveal: false) %>"
   );
 
+  $('#vote-<%= @resource[:story_id] %> .reveal').removeAttr('disabled');
+  
 <% end %>

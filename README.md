@@ -99,7 +99,6 @@ Contributions are encouraged. You can contribute in many ways. For example, you 
 
 When contributing, you will need to:
 
-* follow git flow procedure
 * follow the same style / convention used throughout the app (as much as you can)
 * make sure your codes are well-tested and reviewed
 * when fixing a bug, provide a failing test case that your patch solves

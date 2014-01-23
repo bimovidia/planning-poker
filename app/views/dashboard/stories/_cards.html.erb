@@ -8,5 +8,5 @@
   <% end %>
 
   <%= link_to t('reset'), reset_path(story.id, encoded_user), class: 'btn btn-warning action-vote', remote: true %>
-  <%= link_to t('reveal'), reveal_path(story.id), class: 'btn btn-info pull-right action-vote', remote: true %>
+  <%= link_to t('reveal'), reveal_path(story.id), class: 'btn btn-info pull-right action-vote reveal', remote: true, disabled: !current_user_has_voted?(story) %>
 </div>

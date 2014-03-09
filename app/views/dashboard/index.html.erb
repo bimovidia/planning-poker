@@ -3,10 +3,10 @@
     <%= t('story').pluralize %>
   </h2>
   <div id="stories">
-    <%= render 'dashboard/stories/list', project: @projects.first %>
+    <%= render 'dashboard/stories/list', project: @projects.first unless @projects.blank? %>
   </div>
 </div>
 
 <div id="sidebar" class="col-md-4">
-  <%= render 'dashboard/stories/project', project: @projects.first %>
+  <%= render 'dashboard/stories/project', project: @projects.first unless @projects.blank? %>
 </div>

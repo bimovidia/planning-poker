@@ -16,20 +16,37 @@
         <% end %>
       </div>
     </div>
-    <%= render 'menu', projects: @projects %>
-  </div>
-  <div id="sub-menu" class="row">
-    <ul>
-      <li id="filter-all" class="selected">
-        <%= t('all').upcase %>
-      </li>
-      <li id="filter-unestimated">
-        <%= t('unestimated').upcase %>
-      </li>
-    </ul>
+    <%= render 'menu', projects: @projects unless @projects.blank? %>
   </div>
 
-  <div id="content" class="col-md-12">
-    <%= yield %>
-  </div>
+  <% if @projects.blank? %>
+
+    <div id="content">
+      <div class="text-center default-state">
+        <span class="fa fa-rocket"></span>
+        <h2>
+          You do not own or have any projects assigned.
+          <small>Please create a project in Pivotal Tracker first!</small>
+        </h2>
+      </div>
+    </div>
+
+  <% else %>
+
+    <div id="sub-menu" class="row">
+      <ul>
+        <li id="filter-all" class="selected">
+          <%= t('all').upcase %>
+        </li>
+        <li id="filter-unestimated">
+          <%= t('unestimated').upcase %>
+        </li>
+      </ul>
+    </div>
+
+    <div id="content" class="col-md-12">
+      <%= yield %>
+    </div>
+
+  <% end %>
 </div>

@@ -290,6 +290,25 @@
     }
   }
 
+  .default-state {
+    margin: 5% 0;
+
+    .fa {
+      font-size: 20em;
+      color: #EEE;
+    }
+
+    h2 {
+      color: #999;
+
+      small {
+        display: block;
+        color: #CCC;
+        margin: 5px 0;
+      }
+    }
+  }
+
   .story-labels { text-transform: uppercase; }
 
   .widget {

@@ -22,7 +22,7 @@ Planning poker, also called Scrum poker, is a consensus-based technique for esti
 ## Frameworks
 This application uses the following frameworks:
 
-* [Ruby on Rails](http://rubyonrails.org/) (4.0.2)
+* [Ruby on Rails](http://rubyonrails.org/) (4.0.3)
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/) (Front-end)
 * [jQuery](http://jquery.com/) (Javascript)
 

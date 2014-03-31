@@ -1,6 +1,6 @@
 flashMsg = ->
   if $('.flash').length
-    $('.flash').fadeIn('slow')
+    $('.flash').last().fadeIn('slow').siblings().remove()
 
     setTimeout(
       ->

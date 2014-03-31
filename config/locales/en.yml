@@ -8,6 +8,7 @@ en:
   requester:    "Requester"
   reveal:       "Reveal"
   save:         "Save"
+  signin:       "Sign In"
   signout:      "Sign Out"
   story:        "Story"
   unestimated:  "Unestimated"

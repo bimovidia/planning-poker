@@ -40,10 +40,10 @@ module DashboardHelper
 
   def state(story)
     case story.current_state
-    when 'accepted'    then 'label label-success #{story.current_state}'
-    when 'delivered'   then 'label label-warning #{story.current_state}'
-    when 'started'     then 'label label-info #{story.current_state}'
-    when 'rejected'    then 'label label-danger #{story.current_state}'
+    when 'accepted'    then "label label-success #{story.current_state}"
+    when 'delivered'   then "label label-warning #{story.current_state}"
+    when 'started'     then "label label-info #{story.current_state}"
+    when 'rejected'    then "label label-danger #{story.current_state}"
     else
       "label label-default #{story.current_state}"
     end

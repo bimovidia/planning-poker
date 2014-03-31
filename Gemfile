@@ -21,6 +21,17 @@ gem 'backtop'
 gem 'mongoid', github: 'mongoid'
 gem 'bson_ext'
 
+gem 'rspec-rails', group: [:test, :development]
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'forgery'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'rack_session_access'
+  gem 'mocha', require: false
+end
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

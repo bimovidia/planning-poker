@@ -23,14 +23,16 @@ module Support
       # This method will stub a user and logs the user in to the system
       #
       def login
-        User.stubs(:authenticate).returns(user)
-
         visit login_path
 
-        fill_in 'session_username', with: Forgery(:internet).email_address
-        fill_in 'session_password', with: Forgery(:basic).password
+        fill_in 'username', with: Forgery(:internet).email_address
+        fill_in 'password', with: Forgery(:basic).password
 
         click_button t('signin').upcase
+      end
+
+      def logout
+        click_link t('signout')
       end
 
       private

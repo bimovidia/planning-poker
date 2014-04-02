@@ -20,7 +20,11 @@ prefork = -> {
     config.infer_base_class_for_anonymous_controllers = false
     config.order = "random"
 
-    ['Sessions', 'Dashboard'].each do |helper|
+    ['Basic', 'Project', 'Story'].each do |fixture|
+      config.include "Support::Fixtures::#{fixture}Fixture".constantize
+    end
+
+    ['Application', 'Sessions', 'Dashboard', 'Views'].each do |helper|
       config.include "Support::Helpers::#{helper}Helper".constantize
     end
 

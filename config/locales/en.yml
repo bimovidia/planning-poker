@@ -4,6 +4,8 @@ en:
   editable:     "Editable"
   na:           "N/A"
   owner:        "Owner"
+  planning:     "Planning"
+  poker:        "Poker"
   reset:        "Reset"
   requester:    "Requester"
   reveal:       "Reveal"
@@ -12,6 +14,11 @@ en:
   signout:      "Sign Out"
   story:        "Story"
   unestimated:  "Unestimated"
+
+  dashboard:
+    empty:
+      title:    "You do not own or have any projects assigned."
+      subtitle: "Please create a project in Pivotal Tracker first!"
 
   projects:
     id:         "Project ID"
@@ -31,11 +38,13 @@ en:
   # Flashes
   flashes:
     sessions:
-      destroy:  "You have successfully logged out"
-      expired:  "Your session has expired"
-      failed:   "Invalid username or password"
-      signin:   "You will need to sign in first"
-      success:  "You have successfully logged in"
+      destroy:      "You have successfully logged out"
+      expired:      "Your session has expired"
+      failed:       "Invalid username or password"
+      token:        "Your API Key / Token is not yet set up. Please set one up in Pivotal Tracker!"
+      signin:       "You will need to sign in first"
+      success:      "You have successfully logged in"
+      unauthorized: "No API Key / Token found. Please re-login!"
 
     stories:
       update:   "Story ID#%{id} has been updated successfully"

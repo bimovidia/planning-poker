@@ -30,7 +30,7 @@
           <%= t('projects.labels') %>
         </div>
         <div class="col-md-8">
-          <%= project.labels.split(',').join(', ') %>
+          <%= comma_separated project.labels %>
         </div>
       </div>
     </li>
@@ -50,7 +50,7 @@
           <%= t('projects.scale') %>
         </div>
         <div class="col-md-8">
-          <%= project.point_scale.split(',').join(', ') %>
+          <%= comma_separated project.point_scale %>
         </div>
       </div>
     </li>

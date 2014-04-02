@@ -8,7 +8,7 @@
           <i class="fa fa-circle-o fa-stack-2x"></i>
           <i class="fa fa-heart fa-stack-1x"></i>
         </span>
-        Planning<span>Poker</span>
+        <%= t('planning') %><span><%= t('poker') %></span>
       </h1>
       <div id="header-links" class="text-right col-md-2">
         <%= link_to logout_path, method: :delete, class: 'white header-links' do %>
@@ -25,8 +25,8 @@
       <div class="text-center default-state">
         <span class="fa fa-rocket"></span>
         <h2>
-          You do not own or have any projects assigned.
-          <small>Please create a project in Pivotal Tracker first!</small>
+          <%= t('dashboard.empty.title') %>
+          <small><%= t('dashboard.empty.subtitle') %></small>
         </h2>
       </div>
     </div>

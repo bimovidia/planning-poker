@@ -27,9 +27,11 @@ group :test do
   gem 'factory_girl_rails'
   gem 'forgery'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'rack_session_access'
   gem 'mocha', require: false
+  gem 'zeus', require: false
 end
 
 group :development do

@@ -26,8 +26,16 @@ class ApplicationController < ActionController::Base
     !!session[:user]
   end
 
-  rescue_from PivotalTracker::Client::NoToken do |exception|
+  def rescue_steps(message)
     reset_session
-    redirect_to login_path, alert: t('flashes.sessions.signin')
+    redirect_to login_path, alert: message
+  end
+
+  rescue_from PivotalTracker::Client::NoToken do |exception|
+    rescue_steps t('flashes.sessions.token')
+  end
+
+  rescue_from RestClient::Unauthorized do |exception|
+    rescue_steps t('flashes.sessions.unauthorized')
   end
 end

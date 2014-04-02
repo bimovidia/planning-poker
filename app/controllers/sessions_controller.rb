@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  rescue_from RestClient::Unauthorized, with: :login_redirect
 
   def new
     redirect_to :root if user_signed_in?
@@ -16,13 +15,13 @@ class SessionsController < ApplicationController
     
       redirect_to :root, notice: t('flashes.sessions.success')
     else
-      login_redirect
+      redirect_to :login, alert: t('flashes.sessions.failed')
     end
   end
 
   def destroy
     reset_session
-    redirect_to login_path, notice: t('flashes.sessions.destroy')
+    redirect_to :login, notice: t('flashes.sessions.destroy')
   end
 
   private
@@ -31,9 +30,5 @@ class SessionsController < ApplicationController
     params.permit(
       :username, :password
     )
-  end
-
-  def login_redirect
-    redirect_to login_path, alert: t('flashes.sessions.failed')
   end
 end

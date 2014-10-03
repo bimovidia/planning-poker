@@ -4,6 +4,9 @@ gem 'rails', '4.0.3'
 gem 'thin'
 gem 'faye'
 
+# Heorku
+gem 'rails_12factor'
+
 # Assets
 gem 'jquery-rails'
 gem 'turbolinks'

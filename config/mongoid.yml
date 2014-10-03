@@ -76,12 +76,11 @@ test:
 production:
   sessions:
     default:
-      database: planning_poker_rails
-      hosts:
-        - localhost:27017
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
-  options:
-    raise_not_found_error: false
+        consistency: :strong
+        max_retries: 1
+        retry_interval: 0
 
 staging:
   sessions:

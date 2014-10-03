@@ -20,7 +20,7 @@ PlanningPokerRails::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -81,8 +81,8 @@ PlanningPokerRails::Application.configure do
   # Publisher for push notification
   config.publisher = {
     # production faye server - change the URL so that it points to the correct server.
-    domain: 'localhost:9292',
+    domain: (ENV['FAYE_URL'] || 'localhost:9292'),
     # secret key
-    secret: 'secret'
+    secret: (ENV['FAYE_SECRET'] || 'secret')
   }
 end

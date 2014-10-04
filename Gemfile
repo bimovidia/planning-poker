@@ -5,8 +5,9 @@ gem 'rails', '4.0.3'
 gem 'thin'
 gem 'faye'
 
-# Heorku
+# Heroku and New Relic
 gem 'rails_12factor'
+gem 'newrelic_rpm'
 
 # Assets
 gem 'jquery-rails'

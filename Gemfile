@@ -1,8 +1,13 @@
+ruby '2.1.3'
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.3'
 gem 'thin'
 gem 'faye'
+
+# Heroku and New Relic
+gem 'rails_12factor'
+gem 'newrelic_rpm'
 
 # Assets
 gem 'jquery-rails'
@@ -41,6 +46,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1', require: false
   gem 'capistrano-bundler', '~> 1.1', require: false
   gem 'capistrano-rvm', '~> 0.1', require: false
+  gem 'codeclimate-test-reporter', require: false
 end
 
 group :doc do

@@ -1,6 +1,8 @@
 # Pivotal Tracker: Planning Poker
 
-![Pivotal Tracker: Planning Poker](http://bimovidia.com/images/planning-poker.png)
+[![Build Status](https://codeship.io/projects/9c4e6a80-2d71-0132-149b-5a27a41fa12a/status?branch=master)](https://codeship.io/projects/39242)
+[![Code Quality](https://codeclimate.com/github/Foodee/planning-poker/badges/gpa.svg)](https://codeclimate.com/github/Foodee/planning-poker)
+[![Test Coverage](https://codeclimate.com/github/Foodee/planning-poker/badges/coverage.svg)](https://codeclimate.com/github/Foodee/planning-poker)
 
 Planning poker, also called Scrum poker, is a consensus-based technique for estimating, mostly used to estimate effort or relative size of user stories in software development. In planning poker, members of the group make estimates by playing numbered cards in the app, instead of speaking them aloud. The cards are revealed, and the estimates are then discussed. By hiding the figures in this way, the group can avoid the cognitive bias of anchoring, where the first number spoken aloud sets a precedent for subsequent estimates.
 

@@ -41,8 +41,8 @@ module DashboardHelper
   def state(story)
     case story.current_state
     when 'accepted'    then "label label-success #{story.current_state}"
-    when 'delivered'   then "label label-warning #{story.current_state}"
-    when 'started'     then "label label-info #{story.current_state}"
+    when 'started'   then "label label-warning #{story.current_state}"
+    when 'unscheduled' then "label label-info #{story.current_state}"
     when 'rejected'    then "label label-danger #{story.current_state}"
     else
       "label label-default #{story.current_state}"
@@ -99,7 +99,7 @@ module DashboardHelper
   end
 
   def voting(vote)
-    (vote.user == current_user[:username]) ? vote.vote : false
+    (vote.user == current_user['username']) ? vote.vote : false
   end
 
   def nickname(user)
@@ -107,7 +107,7 @@ module DashboardHelper
   end
 
   def current_user_has_voted?(story)
-    Vote.find_by(story_id: story.id, user: current_user[:username]).present?
+    Vote.find_by(story_id: story.id, user: current_user['username']).present?
   end
 
 end

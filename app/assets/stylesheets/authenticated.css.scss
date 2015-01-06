@@ -165,7 +165,7 @@
     padding: 0;
 
     .story {
-      font-size: 12px;
+      font-size: .8em;
       background-color: #F3F3D1;
       border-bottom: 1px solid #DBDBB0;
       border-top: 1px solid #FFF;
@@ -176,9 +176,7 @@
     }
 
     .story-icons {
-      width: 10%;
-      min-width: 65px;
-      max-width: 65px;
+      width: 75px;
 
       a:hover {
         text-decoration: none;
@@ -201,6 +199,23 @@
     .story-rejected {
       background-color: #F3D1D1;
       border-bottom: 1px solid #DBB0B0;
+    }
+
+    .story-started {
+      color: #A08A60;
+      background-color: #FFF4E1;
+    }
+
+    .story-rejected {
+      color: #9B293E;
+    }
+
+    .story-accepted {
+      color: #8B8B40;
+    }
+
+    .story-unscheduled {
+      color: #5F8199;
     }
   }
 
@@ -238,7 +253,7 @@
     overflow: hidden;
     padding: 0 10px;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: .8em;
     font-weight: bold;
     margin: 0;
   }
@@ -266,7 +281,7 @@
     }
 
     textarea {
-      font-size: 11px;
+      font-size: 1em;
     }
 
     .project-name {

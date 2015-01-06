@@ -26,7 +26,14 @@
       </div>
     </div>
 
-    <% unless unestimateable?(story) %>
+    <% if unestimateable?(story) %>
+
+        <div class="col-md-12 story-actions">
+          <%= link_to t('collapse'), detail_path(story.id, 'collapse', encoded_user), remote: true, class: 'btn btn-warning' %>
+        </div>
+
+    <% else %>
+
       <div id="votes-<%= story.id %>" class="col-md-12">
         <%= render 'dashboard/stories/cards', project: project, story: story, reveal: false %>
       </div>

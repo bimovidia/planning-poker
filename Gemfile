@@ -1,7 +1,8 @@
-ruby '2.1.3'
+# ruby '2.1.5'
+
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.2.0'
 gem 'thin'
 gem 'faye'
 
@@ -12,13 +13,14 @@ gem 'newrelic_rpm'
 # Assets
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.0.3'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 gem 'bootstrap-sass'
 gem 'therubyracer', require: 'v8'
 gem 'yui-compressor'
 gem 'font-awesome-rails'
+gem 'responders'
 
 # Custom gems
 gem 'pivotal-tracker'

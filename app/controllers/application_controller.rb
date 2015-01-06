@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def reset_token
-    PivotalTracker::Client.token = current_user[:token] if user_signed_in?
+    PivotalTracker::Client.token = current_user['token'] if user_signed_in?
   end
 
   helper_method :user_signed_in?, :current_user

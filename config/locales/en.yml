@@ -1,7 +1,9 @@
 en:
   all:          "All"
   cancel:       "Cancel"
+  collapse:     "Collapse"
   editable:     "Editable"
+  expand:       "Expand"
   na:           "N/A"
   owner:        "Owner"
   planning:     "Planning"

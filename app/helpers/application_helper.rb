@@ -18,7 +18,7 @@ module ApplicationHelper
 
   def publisher_token
     unless Rails.env.test?
-      digest = OpenSSL::Digest::Digest.new('sha256')
+      digest = OpenSSL::Digest.new('sha256')
       secret = Rails.configuration.publisher[:secret]
       data   = "/#{publisher_environment}/planning-poker/subscribe"
 
@@ -36,7 +36,7 @@ module ApplicationHelper
   end
 
   def encoded_user
-    Base64.strict_encode64(current_user[:username])
+    Base64.strict_encode64(current_user['username'])
   end
 
   def comma_separated(array)

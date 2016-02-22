@@ -36,7 +36,7 @@ module ApplicationHelper
   end
 
   def encoded_user
-    Base64.strict_encode64(current_user[:username])
+    Base64.strict_encode64(current_user['username'])
   end
 
   def comma_separated(array)

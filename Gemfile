@@ -1,7 +1,8 @@
 ruby '2.1.3'
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.2.5.1'
+gem 'sqlite3'
 gem 'thin'
 gem 'faye'
 
@@ -12,13 +13,14 @@ gem 'newrelic_rpm'
 # Assets
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'sass-rails',   '~> 4.0.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 1.0.3'
 gem 'bootstrap-sass'
 gem 'therubyracer', require: 'v8'
 gem 'yui-compressor'
 gem 'font-awesome-rails'
+gem 'responders', '~> 2.0'
 
 # Custom gems
 gem 'pivotal-tracker'
@@ -40,6 +42,7 @@ group :test do
 end
 
 group :development do
+  gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'capistrano', '~> 3.0', require: false
@@ -49,7 +52,6 @@ group :development do
   gem 'codeclimate-test-reporter', require: false
 end
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
+gem 'jbuilder', '~> 2.0'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0', group: :doc

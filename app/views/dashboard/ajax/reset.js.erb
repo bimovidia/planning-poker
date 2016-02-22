@@ -1,7 +1,7 @@
 <% broadcast '/planning-poker/story/reset-vote' do %>
 
-  if ($('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= current_user[:username] %>"]').length) {
-    $('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= current_user[:username] %>"]').remove();
+  if ($('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= current_user['username'] %>"]').length) {
+    $('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= current_user['username'] %>"]').remove();
   }
 
   $('#cards-<%= @resource[:story_id] %> ul').append(

@@ -99,7 +99,7 @@ module DashboardHelper
   end
 
   def voting(vote)
-    (vote.user == current_user[:username]) ? vote.vote : false
+    (vote.user == current_user['username']) ? vote.vote : false
   end
 
   def nickname(user)
@@ -107,7 +107,7 @@ module DashboardHelper
   end
 
   def current_user_has_voted?(story)
-    Vote.find_by(story_id: story.id, user: current_user[:username]).present?
+    Vote.find_by(story_id: story.id, user: current_user['username']).present?
   end
 
 end

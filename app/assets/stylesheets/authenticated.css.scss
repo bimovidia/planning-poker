@@ -1,14 +1,14 @@
 #authenticated {
-  background-color: #F7F6F6;
+  background-color: #484F57;
   color: #333;
 
   #header {
-    background: #7DC266;
+    background: #3E934C;
     padding: 5px 40px 0;
 
     h1 {
       font-family: 'Rokkitt', serif;
-      margin: 0;
+      margin: 5px 0 10px;
       padding: 0;
       font-size: 18px;
       color: #FFF;
@@ -50,7 +50,8 @@
   }
 
   #content {
-    margin: 20px 0;
+    margin: 0;
+    padding: 10px;
   }
 
   #sidebar {
@@ -71,22 +72,14 @@
       list-style: none;
       margin: 0 5px;
       float: left;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 12px;
       text-shadow: 1px 1px 1px #51A335;
 
       &.active {
-        -moz-border-radius-topleft: 4px;
-        -webkit-border-top-left-radius: 4px;
-        border-top-left-radius: 4px;
-        -moz-border-radius-topright: 4px;
-        -webkit-border-top-right-radius: 4px;
-        border-top-right-radius: 4px;
-        background-color: #EEE;
-        color: #666;
-        text-shadow: 1px 1px 1px #FEFEFE;
+        text-shadow: none;
 
-        a { color: #666; &:hover { text-decoration: none; }}
+        a { color: #FFF; &:hover { text-decoration: none; }}
 
         .more-projects {
           .dropdown-toggle, .caret {
@@ -95,7 +88,7 @@
         }
       }
 
-      a { color: #FFF; }
+      a { color: rgba(255, 255, 255, .7); }
 
       .more-projects {
         display: block;
@@ -129,8 +122,7 @@
 
   #sub-menu {
     background: #EEE;
-    box-shadow: 1px 1px 5px #DDD;
-    border-bottom: 1px solid #F9F9F9;
+    border-bottom: 1px solid #212121;
     padding: 10px;
 
     li {
@@ -155,20 +147,18 @@
   }
 
   .stories {
-    -webkit-border-radius: 7px 7px 0 0;
-    -moz-border-radius: 7px 7px 0 0;
-    -ms-border-radius: 7px 7px 0 0;
-    -o-border-radius: 7px 7px 0 0;
-    border-radius: 7px 7px 0 0;
-
-    border: 1px solid #E2E2E2;
     padding: 0;
+    border: 1px solid #111;
 
     .story {
       font-size: 12px;
       background-color: #F3F3D1;
       border-bottom: 1px solid #DBDBB0;
       border-top: 1px solid #FFF;
+
+      &:hover {
+        background: #f0f0c6;
+      }
 
       .story-overview {
         padding: 10px;
@@ -187,35 +177,59 @@
 
     .story-description {
       width: 90%;
+      position: relative;
+
+      > .label {
+        position: absolute;
+        right: -25px;
+        top: -3px;
+        padding: 5px;
+        text-transform: uppercase;
+        font-size: .7em;
+      }
     }
 
     .story-icon {
       width: 30%;
+      color: #949693;
     }
 
     .story-unstarted, .story-unscheduled {
       background-color: #E4EFF7;
       border-bottom: 1px solid #DDD;
+
+      &:hover {
+        background: #D1E0ED;
+      }
     }
 
     .story-rejected {
       background-color: #F3D1D1;
       border-bottom: 1px solid #DBB0B0;
     }
+
+    .story-accepted {
+      background: #daebcf;
+      border-top: 1px solid #eefce2;
+      border-bottom: 1px solid #c3d5b4;
+
+      &:hover {
+        background: #c6d9b7;
+      }
+    }
   }
 
   .icon-bar {
     display: block;
     width: 10px;
-    height: 2px;
-    background-color: #000;
+    height: 3px;
+    background-color: #739DBC;
     margin-bottom: 1px;
   }
 
   .expand, .collapse {
     font-size: .75em;
-    color: #BEBEBE;
-    text-shadow: 0px -1px #666;
+    color: #AFAFAF;
     cursor: pointer;
   }
 
@@ -227,16 +241,12 @@
   }
 
   .titles {
-    background-color: #333;
-    -webkit-border-radius: 6px 6px 0 0;
-    -moz-border-radius: 6px 6px 0 0;
-    -ms-border-radius: 6px 6px 0 0;
-    -o-border-radius: 6px 6px 0 0;
-    border-radius: 6px 6px 0 0;
+    background-color: #2C2D2F;
+    border-top :1px solid #393A3C;
     color: #FFF;
     line-height: 27px;
     overflow: hidden;
-    padding: 0 10px;
+    padding: 5px 10px;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: bold;
@@ -312,14 +322,8 @@
   .story-labels { text-transform: uppercase; }
 
   .widget {
-    -webkit-border-radius: 7px 7px 0 0;
-    -moz-border-radius: 7px 7px 0 0;
-    -ms-border-radius: 7px 7px 0 0;
-    -o-border-radius: 7px 7px 0 0;
-    border-radius: 7px 7px 0 0;
-
-    border: 1px solid #E2E2E2;
     padding: 0;
+    border: 1px solid #111;
 
     ul {
       padding: 0;

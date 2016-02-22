@@ -1,5 +1,5 @@
 #unauthenticated {
-  background-color: #7DC266;
+  background-color: #3E934C;
   color: #888;
 
   #header {
@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
       font-size: 36px;
-      color: #7DC266;
+      color: #3E934C;
 
       span {
         color: #C72543;
@@ -29,7 +29,7 @@
     margin-top: 10%;
 
     h1 {
-      background-image: asset-url('pivotal-tracker.png');
+      background-image: asset-url('pivotal-tracker.svg');
       background-position: 0 0;
       background-repeat: no-repeat;
       display: block;

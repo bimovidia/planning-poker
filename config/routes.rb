@@ -1,5 +1,5 @@
-PlanningPokerRails::Application.routes.draw do
-  root to: 'dashboard', action: :index
+Rails.application.routes.draw do
+  root to: 'dashboard#index'
 
   get 'favicon.ico', controller: :application, action: :favicon
 

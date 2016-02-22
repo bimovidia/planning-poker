@@ -13,7 +13,7 @@ Planning poker, also called Scrum poker, is a consensus-based technique for esti
 * Bootstrap + Font-Awesome for Responsive Design
 
 ## Dependencies
-* Ruby 2.0.0 or later
+* Ruby 2.1.3
 * MongoDB
 * Twitter Bootstrap
 * Font-Awesome
@@ -24,7 +24,7 @@ Planning poker, also called Scrum poker, is a consensus-based technique for esti
 ## Frameworks
 This application uses the following frameworks:
 
-* [Ruby on Rails](http://rubyonrails.org/) (4.0.3)
+* [Ruby on Rails](http://rubyonrails.org/) (4.2.5.1)
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/) (Front-end)
 * [jQuery](http://jquery.com/) (Javascript)
 

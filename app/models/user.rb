@@ -24,14 +24,11 @@ class User
     end
 
     def create(params)
-      raise 'shit'
       # Set Pivotal Tracker token
       token = PivotalTracker::Client.token(
         params[:username],
         params[:password]
       )
-
-      raise token.inspect
 
       salt = salted(
         params[:username]

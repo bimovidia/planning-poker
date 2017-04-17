@@ -76,7 +76,7 @@ Run the application locally with:
 rails s
 ```
 
-##Rule of the Game
+## Rule of the Game
 Once you have the application set up, you can:
 
 * Login using your Pivotal Tracker credential

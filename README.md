@@ -1,6 +1,6 @@
 # Pivotal Tracker: Planning Poker
 
-[![Build Status](https://codeship.io/projects/9c4e6a80-2d71-0132-149b-5a27a41fa12a/status?branch=master)](https://codeship.io/projects/39242)
+[![Build Status](https://codeship.io/projects/abb62c30-77dd-0132-d292-465b99505fde/status?branch=master)](https://codeship.io/projects/39242)
 [![Code Quality](https://codeclimate.com/github/Foodee/planning-poker/badges/gpa.svg)](https://codeclimate.com/github/Foodee/planning-poker)
 [![Test Coverage](https://codeclimate.com/github/Foodee/planning-poker/badges/coverage.svg)](https://codeclimate.com/github/Foodee/planning-poker)
 

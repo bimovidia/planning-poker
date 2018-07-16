@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
   end
 
   def reset_token
-    PivotalTracker::Client.token = current_user['token'] if user_signed_in?
+    user_token = current_user['token'] if user_signed_in?
+    client = TrackerApi::Client.new(token: user_token)
   end
 
   helper_method :user_signed_in?, :current_user
@@ -31,9 +32,9 @@ class ApplicationController < ActionController::Base
     redirect_to login_path, alert: message
   end
 
-  rescue_from PivotalTracker::Client::NoToken do |exception|
-    rescue_steps t('flashes.sessions.token')
-  end
+  # rescue_from !client do |exception|
+  #   rescue_steps t('flashes.sessions.token')
+  # end
 
   rescue_from RestClient::Unauthorized do |exception|
     rescue_steps t('flashes.sessions.unauthorized')

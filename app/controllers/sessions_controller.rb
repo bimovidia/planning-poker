@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user
       session[:user] = {
         username: user.username,
-        token:    user.token
+        token:    user.token,
       }
     
       redirect_to :root, notice: t('flashes.sessions.success')

@@ -34,7 +34,7 @@ module DashboardHelper
     if type_chore?(story)
       'unestimateable'
     else
-      (story.estimate.to_i >= 0) ? 'estimated' : 'unestimated'
+      (story.estimate.to_i >= 0 and story.estimate != nil) ? 'estimated' : 'unestimated'
     end
   end
 
@@ -77,12 +77,11 @@ module DashboardHelper
   end
 
   def unestimateable?(story)
-    estimate_not_applicable?(story) or
-    not estimateable?(story)
+    estimate_not_applicable?(story) or not estimateable?(story)
   end
 
   def estimateable?(story)
-    story.estimate and story.estimate.to_i < 0
+    (story.estimate and story.estimate.to_i < 0) or story.estimate == nil
   end
 
   def estimated?(story)
@@ -107,7 +106,7 @@ module DashboardHelper
   end
 
   def current_user_has_voted?(story)
-    Vote.find_by(story_id: story.id, user: current_user['username']).present?
+    Vote.where(story_id: story.id, user: current_user['username']).present?
   end
 
 end

@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5.1'
-gem 'sqlite3'
 gem 'thin'
 gem 'faye'
+gem 'rest-client'
+gem 'json'
+gem 'tracker_api'
+gem 'pg', '~> 0.21'
+gem 'sqlite3'
 
 # Heroku and New Relic
 gem 'rails_12factor'
@@ -24,7 +28,6 @@ gem 'responders', '~> 2.0'
 # Custom gems
 gem 'pivotal-tracker'
 gem 'backtop'
-gem 'mongoid', github: 'mongoid'
 gem 'bson_ext'
 
 gem 'rspec-rails', group: [:test, :development]

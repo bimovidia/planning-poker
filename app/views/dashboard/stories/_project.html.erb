@@ -30,7 +30,7 @@
           <%= t('projects.labels') %>
         </div>
         <div class="col-md-8">
-          <%= comma_separated project.labels %>
+          <%= project.label_list %>
         </div>
       </div>
     </li>
@@ -40,7 +40,7 @@
           <%= t('projects.scheme') %>
         </div>
         <div class="col-md-8">
-          <%= project.velocity_scheme %>
+          <%= project.current_velocity %>
         </div>
       </div>
     </li>

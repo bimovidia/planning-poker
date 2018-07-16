@@ -8,8 +8,7 @@
   <% if @resource[:toggle] == 'expand' %>
     if (!$('.user-vote[data-vote="<%= @resource[:story_id] %>-<%= @resource[:user] %>"]').length) {
       $('#cards-<%= @resource[:story_id] %> ul').append(
-        "<%= j render('dashboard/stories/vote', story_id: @resource[:story_id], 
-          vote: nil, user: @resource[:user], reveal: false) %>"
+        "<%= j render('dashboard/stories/vote', story_id: @resource[:story_id], vote: nil, user: @resource[:user], reveal: false) %>"
       );
     }
   <% else %>

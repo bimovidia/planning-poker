@@ -1,5 +1,4 @@
 <% votes = Vote.where(story_id: story_id) %>
-
 <ul>
   <% if votes.present? %>
     <% votes.each do |vote| %>

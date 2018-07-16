@@ -1,4 +1,4 @@
-<% project.stories.all.each do |story| %>
+<% project.stories.each do |story| %>
   <div id="story-<%= story.id %>" class="story clearfix story-<%= story.current_state %> story-<%= story.story_type %> story-<%= estimation_class(story) %>">
     <div class="story-overview clearfix">
       <div class="pull-left story-icons">

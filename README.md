@@ -13,7 +13,6 @@ Planning poker, also called Scrum poker, is a consensus-based technique for esti
 
 ## Dependencies
 * Ruby 2.1.3
-* MongoDB
 * Twitter Bootstrap
 * Font-Awesome
 * Pivotal Tracker gem (currently v3)
@@ -32,17 +31,11 @@ This application uses the following gems:
 
 * [Pivotal Tracker](https://github.com/jsmestad/pivotal-tracker) (Pivotal Tracker gem)
 * [Faye](http://faye.jcoglan.com/) (Faye)
-* [Mongoid](https://github.com/mongoid/mongoid) (Mongoid)
 * [Twitter Bootstrap SASS](https://github.com/twbs/bootstrap-sass) (Twitter Bootstrap port to SASS)
 * [Font-Awesome](https://github.com/bokmann/font-awesome-rails) (Font-Awesome Rails)
 * [BackTop](https://github.com/bimovidia/backtop) (Back To Top functionality)
 
 ## Getting Started
-
-Planning Poker uses MongoDB as its database. To install it, please refer to the following link: 
-
-* [Install MongoDB](http://docs.mongodb.org/manual/installation/) - MongoDB installation tutorial
-* [Mongoid](http://mongoid.org/en/mongoid/index.html) - Mongoid official website for documentations
 
 Planning Poker uses push notification with Faye. There are configuration files for each environments in config/environments:
 

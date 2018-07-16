@@ -1,14 +1,15 @@
 class DashboardController < ApplicationController
   before_action :require_authentication, :reset_token, :decode_user
   respond_to    :js
+  protect_from_forgery except: :reveal
 
   def index
-    @projects = PivotalTracker::Project.all
+    @projects = TrackerApi::Client.new(token: session[:user]["token"]).projects
   end
 
   # Ajax
   def project
-    @project = PivotalTracker::Project.find(params[:id].to_i)
+    @project = TrackerApi::Client.new(token: session[:user]["token"]).project(params[:id].to_i)
 
     respond_with @project do |format|
       format.js { render 'dashboard/ajax/project' }

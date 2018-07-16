@@ -1,15 +1,8 @@
-class Vote
-  include Mongoid::Document
-  include Mongoid::Timestamps
-
-  field :story_id, type: Integer
-  field :vote,     type: Integer
-  field :user,     type: String
-
+class Vote < ActiveRecord::Base
   class << self
 
     def set(params)
-      vote = find_by(
+      vote = Vote.where(
         user:     params[:user],
         story_id: params[:story_id]
       )
@@ -26,7 +19,7 @@ class Vote
     end
 
     def reset(params)
-      vote = find_by(
+      vote = Vote.where(
         user:     params[:user],
         story_id: params[:story_id]
       )

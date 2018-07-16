@@ -2,11 +2,7 @@ class Story
   class << self
 
     def update(params)
-      story = PivotalTracker::Story.find(
-        params[:story_id],
-        params[:project_id]
-      )
-
+      story = User.client.project(params[:id].to_i).story(params[:story_id].to_i)
       story.update(params[:story])
     end
 

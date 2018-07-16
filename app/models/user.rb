@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
         return
       end
 
-
       salt = salted(
         params[:username]
       )

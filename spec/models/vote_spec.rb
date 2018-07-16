@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Vote do
-  let(:vote) { FactoryGirl.create(:vote) }
+  let(:vote) { FactoryBot.create(:vote) }
 
   describe '.class' do
 

@@ -86,8 +86,6 @@ GEM
       xpath (~> 2.0)
     childprocess (0.7.1)
       ffi (~> 1.0, >= 1.0.11)
-    codeclimate-test-reporter (1.0.8)
-      simplecov (<= 0.13)
     coderay (1.1.1)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -126,10 +124,10 @@ GEM
     eventmachine (1.2.3)
     excon (0.62.0)
     execjs (2.7.0)
-    factory_girl (4.8.0)
+    factory_bot (4.10.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.8.0)
-      factory_girl (~> 4.8.0)
+    factory_bot_rails (4.10.0)
+      factory_bot (~> 4.10.0)
       railties (>= 3.0.0)
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
@@ -364,10 +362,9 @@ DEPENDENCIES
   capistrano-rails (~> 1.1)
   capistrano-rvm (~> 0.1)
   capybara
-  codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   database_cleaner
-  factory_girl_rails
+  factory_bot_rails
   faye
   font-awesome-rails
   forgery
@@ -387,6 +384,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  simplecov
   spring
   sqlite3
   therubyracer

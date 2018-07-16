@@ -9,7 +9,7 @@ describe User do
     password: password
   }}
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   describe '.class' do
 

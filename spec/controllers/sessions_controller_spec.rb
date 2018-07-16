@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SessionsController do
 
-  let(:user) { FactoryGirl.build(:user) }
+  let(:user) { FactoryBot.build(:user) }
 
   before do
     SessionsController.any_instance.stubs(:user_signed_in?).returns(true)

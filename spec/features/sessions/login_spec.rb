@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Sessions::Login' do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   context 'success' do
     before do

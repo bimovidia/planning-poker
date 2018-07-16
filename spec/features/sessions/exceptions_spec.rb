@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Sessions::Exceptions' do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   context 'unauthenticated' do
     before { visit root_path }

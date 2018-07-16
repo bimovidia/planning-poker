@@ -38,7 +38,7 @@ module Support
       private
 
       def user
-        @user ||= FactoryGirl.create(:user)
+        @user ||= FactoryBot.create(:user)
       end
     end
   end

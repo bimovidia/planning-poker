@@ -2,8 +2,11 @@ class Story
   class << self
 
     def update(params)
-      story = User.client.project(params[:id].to_i).story(params[:story_id].to_i)
-      story.update(params[:story])
+      story = TrackerApi::Resources::Story.new( client:     params[:client],
+                                                project_id: params[:project_id],
+                                                id:         params[:story_id])
+      story.attributes = params[:story]
+      story.save
     end
 
   end

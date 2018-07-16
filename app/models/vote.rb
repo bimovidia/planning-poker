@@ -5,7 +5,7 @@ class Vote < ActiveRecord::Base
       vote = Vote.where(
         user:     params[:user],
         story_id: params[:story_id]
-      )
+      ).first
 
       if vote
         vote.update(vote: params[:vote])
@@ -22,7 +22,7 @@ class Vote < ActiveRecord::Base
       vote = Vote.where(
         user:     params[:user],
         story_id: params[:story_id]
-      )
+      ).first
 
       vote.delete if vote
     end

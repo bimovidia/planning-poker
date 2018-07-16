@@ -20,14 +20,12 @@ class User < ActiveRecord::Base
     end
 
     def create(params)
-      begin
-        api_response = RestClient::Request.execute(method: :get, url: "https://www.pivotaltracker.com/services/v5/me", user: params[:username], password: params[:password])
-        token = JSON.parse(api_response)["api_token"]
-      rescue Exception => err
-        puts err.response
-        return
-      end
-
+      api_response = RestClient::Request.execute(
+          method: :get,
+          url: "https://www.pivotaltracker.com/services/v5/me",
+          user: params[:username],
+          password: params[:password]) # HTTP errors are handled by application_controller.rb
+      token = JSON.parse(api_response)["api_token"]
 
       salt = salted(
         params[:username]

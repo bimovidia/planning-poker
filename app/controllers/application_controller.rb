@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def reset_token
     user_token = current_user['token'] if user_signed_in?
-    client = TrackerApi::Client.new(token: user_token)
+    @client = TrackerApi::Client.new(token: user_token)
   end
 
   helper_method :user_signed_in?, :current_user

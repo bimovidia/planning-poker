@@ -4,12 +4,12 @@ class DashboardController < ApplicationController
   protect_from_forgery except: :reveal
 
   def index
-    @projects = TrackerApi::Client.new(token: session[:user]["token"]).projects
+    @projects = @client.projects
   end
 
   # Ajax
   def project
-    @project = TrackerApi::Client.new(token: session[:user]["token"]).project(params[:id].to_i)
+    @project = @client.project(params[:id].to_i)
 
     respond_with @project do |format|
       format.js { render 'dashboard/ajax/project' }
@@ -66,6 +66,7 @@ class DashboardController < ApplicationController
   end
 
   def update
+    params[:client] = @client
     @resource = Story.update(params)
 
     respond_with @resource do |format|

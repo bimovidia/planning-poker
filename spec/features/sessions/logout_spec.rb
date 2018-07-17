@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Sessions::Logout' do
+describe 'Sessions::Logout', skip: true do
   before { skip_authentication(DashboardController) }
 
   context 'success' do

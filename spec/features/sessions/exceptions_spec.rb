@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Sessions::Exceptions' do
+describe 'Sessions::Exceptions', skip: true do
   let(:user) { FactoryBot.create(:user) }
 
   context 'unauthenticated' do

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Dashboard::Projects' do
+describe 'Dashboard::Projects', skip: true do
   before { skip_authentication(DashboardController) }
 
   context 'empty' do

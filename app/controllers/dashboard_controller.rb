@@ -24,7 +24,6 @@ class DashboardController < ApplicationController
       vote:     params[:vote],
       user:     params[:user]
     }
-    puts @resource
 
     respond_with @resource do |format|
       format.js { render 'dashboard/ajax/vote' }
@@ -67,7 +66,6 @@ class DashboardController < ApplicationController
   end
 
   def update
-    puts params
     
     client = TrackerApi::Client.new(token: session[:user]["token"])
     @resource = Story.update(params, client)

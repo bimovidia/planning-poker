@@ -30,8 +30,7 @@
       <div id="votes-<%= story.id %>" class="col-md-12">
         <%= render 'dashboard/stories/cards', project: project, story: story, reveal: false %>
       </div>
-      <%= vote %>
-      <%= hidden_field_tag 'estimate', story.estimate, name: 'story[estimate]' %>
+      <%= hidden_field_tag 'estimate', nil, name: 'story[estimate]' %>
 
       <div class="col-md-12 story-actions">
         <%= submit_tag t('save'), class: 'btn btn-success' %>

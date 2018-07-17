@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe Project do
+describe Project, type: :model do
 end

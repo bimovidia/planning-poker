@@ -5,8 +5,7 @@
   }
 
   $('#cards-<%= @resource[:story_id] %> ul').append(
-    "<%= j render('dashboard/stories/vote', story_id: @resource[:story_id], 
-    vote: false, user: @resource[:user], reveal: false) %>"
+    "<%= j render('dashboard/stories/vote', story_id: @resource[:story_id], vote: false, user: @resource[:user], reveal: false) %>"
   );
 
   $('#vote-<%= @resource[:story_id] %> .reveal').removeAttr('disabled');

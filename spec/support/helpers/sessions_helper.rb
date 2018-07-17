@@ -10,13 +10,13 @@ module Support
       def skip_authentication(controller)
         controller.any_instance.stubs(:require_authentication).returns(false)
         controller.any_instance.stubs(:current_user).returns(user)
+        @client = mock
+        TrackerApi::Client.stubs(:new).returns(@client)
 
-        page.set_rack_session(
-          user: {
-            username: user.username,
-            token:    user.token
-          }
-        )
+        session[:user] = {
+          username: user.username,
+          token:    user.token
+        }
       end
 
       # Login steps to authenticate user.

@@ -21,7 +21,7 @@ prefork = -> {
   RSpec.configure do |config|
     config.mock_with :mocha
     config.infer_base_class_for_anonymous_controllers = false
-    config.order = "random"
+    # config.order = "random"
 
     ['Basic', 'Project', 'Story'].each do |fixture|
       config.include "Support::Fixtures::#{fixture}Fixture".constantize

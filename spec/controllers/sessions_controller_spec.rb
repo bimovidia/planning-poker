@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SessionsController do
+describe SessionsController, type: :controller do
 
   let(:user) { FactoryBot.build(:user) }
 
@@ -16,7 +16,7 @@ describe SessionsController do
 
     it 'should redirect to root' do
       get :new, {}, valid_session
-      response.should redirect_to root_path
+      expect(response).to redirect_to root_path
     end
   end
 
@@ -36,12 +36,12 @@ describe SessionsController do
 
       it 'should set user session' do
         post :create, params, valid_session
-        session[:user].should eq({ username: user.username, token: user.token })
+        expect(session[:user]).to eq({ username: user.username, token: user.token })
       end
 
       it 'should redirect to root' do
         post :create, params, valid_session
-        response.should redirect_to root_path
+        expect(response).to redirect_to root_path
       end
     end
 
@@ -50,7 +50,7 @@ describe SessionsController do
 
       it 'should redirect to login path' do
         post :create, params, valid_session
-        response.should redirect_to login_path
+        expect(response).to redirect_to login_path
       end
 
     end
@@ -66,12 +66,12 @@ describe SessionsController do
 
     it 'should reset session' do
       delete :destroy, {}, valid_session
-      session.should_not have_key(:user)
+      expect(session).not_to have_key(:user)
     end
 
     it 'should redirect to login' do
       delete :destroy, {}, valid_session
-      response.should redirect_to login_path
+      expect(response).to redirect_to login_path
     end
   end
 

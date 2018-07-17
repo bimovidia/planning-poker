@@ -39,4 +39,9 @@ class ApplicationController < ActionController::Base
   rescue_from RestClient::Unauthorized do |exception|
     rescue_steps t('flashes.sessions.unauthorized')
   end
+
+  rescue_from TrackerApi::Errors::ClientError do
+    rescue_steps t('flashes.sessions.unauthorized')
+  end
+
 end

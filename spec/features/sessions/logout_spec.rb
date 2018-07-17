@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe 'Sessions::Logout', skip: true do
-  before { skip_authentication(DashboardController) }
+describe 'Sessions::Logout', type: :feature do
+  before { skip_auth_feature(DashboardController) }
 
   context 'success' do
     before do
@@ -10,7 +10,7 @@ describe 'Sessions::Logout', skip: true do
       logout
     end
 
-    specify { page.should have_content t('flashes.sessions.destroy') }
+    specify { expect(page).to have_content t('flashes.sessions.destroy') }
   end
 
 end

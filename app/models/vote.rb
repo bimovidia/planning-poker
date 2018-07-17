@@ -5,12 +5,12 @@ class Vote < ActiveRecord::Base
       vote = Vote.where(
         user:     params[:user],
         story_id: params[:story_id]
-      ).take
+      ).first
 
       if vote
         vote.update(:vote => params[:vote].to_i)
       else
-        create(
+        Vote.create(
           user:     params[:user],
           story_id: params[:story_id],
           vote:     params[:vote]
@@ -22,7 +22,7 @@ class Vote < ActiveRecord::Base
       vote = Vote.where(
         user:     params[:user],
         story_id: params[:story_id]
-      ).take
+      ).first
 
       vote.destroy if vote
     end

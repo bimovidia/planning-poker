@@ -16,4 +16,7 @@
 !/log/.keep
 /tmp
 
+# Ignore all of the coverage directory
+/coverage/*
+
 .DS_Store

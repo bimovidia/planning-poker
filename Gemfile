@@ -30,7 +30,7 @@ gem 'pivotal-tracker'
 gem 'backtop'
 gem 'bson_ext'
 
-gem 'rspec-rails', group: [:test, :development]
+gem 'rspec-rails', '~> 3.6.1', group: [:test, :development]
 
 group :test do
   gem 'factory_bot_rails'

@@ -6,14 +6,14 @@ module Support
         {
           id:               stub_id,
           name:             stub_text,
-          velocity_scheme:  stub_text,
-          labels:           stub_labels,
+          velocity_averaged_over:  stub_id,
+          label_list:           stub_labels,
           point_scale:      stub_point_scale
         }
       end
 
       def stub_projects(projects = [])
-        PivotalTracker::Project.stubs(:all).returns(projects)
+        @client.stubs(:projects).returns(projects)
       end
 
       def stub_labels(n = 5)

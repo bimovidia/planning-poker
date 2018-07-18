@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe SessionsHelper do
+describe SessionsHelper, type: :helper do
 end

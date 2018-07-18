@@ -15,11 +15,7 @@ module Support
       end
 
       def stub_stories(project, n = 10)
-        project.stubs(:stories).returns(
-          stub(
-            all: (1..n).map { |i| init_object(story_params) }
-          )
-        )
+        project.stubs(:stories).returns((1..n).map { |i| init_object(story_params) })
       end
 
       def stub_state

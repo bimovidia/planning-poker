@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe 'Dashboard::Projects' do
-  before { skip_authentication(DashboardController) }
+describe 'Dashboard::Projects', type: :feature do
+  before { skip_auth_feature(DashboardController) }
 
   context 'empty' do
     before do
@@ -9,8 +9,8 @@ describe 'Dashboard::Projects' do
       visit root_path
     end
     
-    specify { page.should have_content t('dashboard.empty.title') }
-    specify { page.should have_content t('dashboard.empty.subtitle') }
+    specify { expect(page).to have_content t('dashboard.empty.title') }
+    specify { expect(page).to have_content t('dashboard.empty.subtitle') }
   end
 
   context 'projects' do
@@ -23,12 +23,13 @@ describe 'Dashboard::Projects' do
       visit root_path
     end
 
-    specify { project_nodes.size.should eq 5}
-    specify { story_nodes.size.should eq 10}
-    specify { page.should have_content project.name }
-    specify { page.should have_content project.velocity_scheme }
-    specify { page.should have_content project.labels.split(',').join(', ') }
-    specify { page.should have_content project.point_scale.split(',').join(', ') }
+    specify { expect(project_nodes.size).to eq 5}
+    specify { expect(story_nodes.size).to eq 10}
+    specify { expect(page).to have_content project.name }
+    specify { expect(page).to have_content "Averaged over #{project.velocity_averaged_over} weeks" }
+    specify { expect(page).to have_content project.label_list.split(',').join(',') }
+
+    specify { expect(page).to have_content project.point_scale.split(',').join(', ') }
   end
 
 end

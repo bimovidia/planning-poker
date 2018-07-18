@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe DashboardController do
+describe DashboardController, type: :controller do
 
   before do
     skip_authentication(DashboardController)
@@ -11,26 +11,26 @@ describe DashboardController do
   end
 
   describe 'GET index' do
-    before { PivotalTracker::Project.stubs(:all) }
+    before { @client.stubs(:projects) }
 
     it 'should call all on PivotalTracker::Project' do
-      PivotalTracker::Project.expects(:all)
+      @client.expects(:projects)
       get :index, {}, valid_session
     end
   end
 
   describe 'GET project' do
-    before { PivotalTracker::Project.stubs(:find) }
+    before { @client.stubs(:project) }
     let(:params) {{ id: 1 }}
 
     it 'should call find on PivotalTracker::Project' do
-      PivotalTracker::Project.expects(:find).with(params[:id])
+      @client.expects(:project).with(params[:id])
       xhr :get, :project, params, valid_session, format: :js
     end
 
     it 'should render ajax project' do
       xhr :get, :project, params, valid_session, format: :js
-      response.should render_template 'dashboard/ajax/project'
+      expect(response).to render_template 'dashboard/ajax/project'
     end
   end
 
@@ -51,12 +51,12 @@ describe DashboardController do
 
     it 'should assign resource' do
       xhr :get, :reset, params, valid_session, format: :js
-      assigns(:resource).should eq({ story_id: params['story_id'], user: decoded_user(params['user']) })
+      expect(assigns(:resource)).to eq({ story_id: params['story_id'], user: decoded_user(params['user']) })
     end
 
     it 'should render ajax reset' do
       xhr :get, :reset, params, valid_session, format: :js
-      response.should render_template 'dashboard/ajax/reset'
+      expect(response).to render_template 'dashboard/ajax/reset'
     end
   end
 
@@ -69,12 +69,12 @@ describe DashboardController do
 
     it 'should assign resource' do
       xhr :get, :detail, params, valid_session, format: :js
-      assigns(:resource).should eq params.merge(user: decoded_user(params[:user]))
+      expect(assigns(:resource)).to eq params.merge(user: decoded_user(params[:user]))
     end
 
     it 'should render ajax detail' do
       xhr :get, :detail, params, valid_session, format: :js
-      response.should render_template 'dashboard/ajax/detail'
+      expect(response).to render_template 'dashboard/ajax/detail'
     end
   end
 
@@ -85,12 +85,12 @@ describe DashboardController do
 
     it 'should assign resource' do
       xhr :get, :reveal, params, valid_session, format: :js
-      assigns(:resource).should eq params
+      expect(assigns(:resource)).to eq params
     end
 
     it 'should render ajax reveal' do
       xhr :get, :reveal, params, valid_session, format: :js
-      response.should render_template 'dashboard/ajax/reveal'
+      expect(response).to render_template 'dashboard/ajax/reveal'
     end
   end
 
@@ -104,13 +104,14 @@ describe DashboardController do
     before { Story.stubs(:update) }
 
     it 'should call update on Story' do
+      params['client'] = @client
       Story.expects(:update).with(params)
       xhr :post, :update, params, valid_session, format: :js
     end
 
     it 'should render ajax update' do
       xhr :post, :update, params, valid_session, format: :js
-      response.should render_template 'dashboard/ajax/update'
+      expect(response).to render_template 'dashboard/ajax/update'
     end
   end
 
@@ -122,12 +123,12 @@ describe DashboardController do
 
     it 'should assign resource' do
       xhr :post, :select, params, valid_session, format: :js
-      assigns(:resource).should eq params
+      expect(assigns(:resource)).to eq params
     end
 
     it 'should render ajax select' do
       xhr :post, :select, params, valid_session, format: :js
-      response.should render_template 'dashboard/ajax/select'
+      expect(response).to render_template 'dashboard/ajax/select'
     end
   end
 

@@ -1,10 +1,9 @@
 require 'spec_helper'
 
-describe Vote do
-  let(:vote) { FactoryGirl.create(:vote) }
+describe Vote, type: :model do
+  let(:vote) { FactoryBot.create(:vote) }
 
   describe '.class' do
-
     context '#set' do
       let(:params) {{
         user:     vote.user,
@@ -15,10 +14,10 @@ describe Vote do
       after { Vote.set(params) }
 
       it 'should call find_by on Vote' do
-        Vote.expects(:find_by).with(
+        Vote.expects(:where).with(
           user:     params[:user],
           story_id: params[:story_id]
-        )
+        ).returns( [vote] )
       end
 
       it 'should call update on vote instance' do
@@ -46,14 +45,14 @@ describe Vote do
       after { Vote.reset(params) }
 
       it 'should call find_by on Vote' do
-        Vote.expects(:find_by).with(
+        Vote.expects(:where).with(
           user:     params[:user],
           story_id: params[:story_id]
-        )
+        ).returns( [vote] )
       end
 
       it 'should call delete on vote instance' do
-        Vote.any_instance.expects(:delete)
+        Vote.any_instance.expects(:destroy)
       end
     end
 

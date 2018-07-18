@@ -1,8 +1,6 @@
 prefork = -> {
   ENV["RAILS_ENV"] = 'test'
 
-  require 'codeclimate-test-reporter'
-  CodeClimate::TestReporter.start
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'forgery/forgery'
@@ -13,6 +11,9 @@ prefork = -> {
   require 'capybara/rails'
   require 'rack_session_access/capybara'
 
+  require 'simplecov'
+  SimpleCov.start
+
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -20,7 +21,7 @@ prefork = -> {
   RSpec.configure do |config|
     config.mock_with :mocha
     config.infer_base_class_for_anonymous_controllers = false
-    config.order = "random"
+    # config.order = "random"
 
     ['Basic', 'Project', 'Story'].each do |fixture|
       config.include "Support::Fixtures::#{fixture}Fixture".constantize
@@ -50,7 +51,7 @@ each_run = -> {
   Rails.application.reload_routes!
 
   # Reload factories in spec/factories.
-  FactoryGirl.reload
+  FactoryBot.reload
 
   # Reload language bundles in config/locales.
   I18n.backend.reload!

@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
 
     def create(params)
       begin
-        api_response = RestClient::Request.execute(method: :get, 
-          url: "https://www.pivotaltracker.com/services/v5/me", 
-          user: params[:username], 
+        api_response = RestClient::Request.execute(method: :get,
+          url: "https://www.pivotaltracker.com/services/v5/me",
+          user: params[:username],
           password: params[:password])
         token = JSON.parse(api_response)["api_token"]
       rescue Exception => err

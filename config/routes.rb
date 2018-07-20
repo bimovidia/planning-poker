@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     post 'update-story', action: :update, as: :update
   end
 
+  resources :activities, only: [:index, :show, :create, :destroy]
 end

@@ -1,4 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Project, type: :model do
+RSpec.describe Project, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

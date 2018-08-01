@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'reveal/:story_id', action: :reveal, as: :reveal
     post 'select-vote', action: :select, as: :select
     post 'update-story', action: :update, as: :update
+    get '/makehangout', action: :getHangoutsLink
   end
 
 end

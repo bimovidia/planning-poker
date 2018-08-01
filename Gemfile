@@ -29,6 +29,7 @@ gem 'responders', '~> 2.0'
 gem 'pivotal-tracker'
 gem 'backtop'
 gem 'bson_ext'
+gem 'google-api-client', '~> 0.8'
 
 gem 'rspec-rails', '~> 3.6.1', group: [:test, :development]
 

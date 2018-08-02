@@ -54,5 +54,27 @@
         </div>
       </div>
     </li>
+    <li>
+      <div class="row">
+        <div class="col-md-4 story-labels">
+          <%= t('Google Hangouts') %>
+        </div>
+        <!-- Create Switch for a button here -->
+        <% results = Project.where(pivotal_id: project.id.to_s) %>
+        <% if !results.any? %>
+          <div class="col-md-8">
+            <%= link_to "Click here to create Google Hangouts meeting.", makehangout_path(:project_id => project.id) %>
+          </div>
+        <% elsif results.first.event_id == "LOCKED" %>
+          <div class="col-md-8">
+            Creating Google Hangouts session. Please wait and then refresh your page later.
+          </div>
+        <% else %>
+            <% icon_and_link = Project.get_hangout_join_icon(project) %>
+            <%= link_to image_tag(icon_and_link[0], :size => '128x128') + "Join Hangout here", icon_and_link[1], style: 'font-size:150%;', class: 'css_class', target: :_blank %>
+        <% end %>
+          
+      </div>
+    </li>
   </ul>
 </div>

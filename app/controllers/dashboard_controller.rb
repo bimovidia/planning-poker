@@ -120,37 +120,9 @@ class DashboardController < ApplicationController
     end
   end
 
-  def getHangoutsLink
-    query = Project.where(pivotal_id: params[:project_id].to_s)
-    if (!query.any?) 
-      proj = Project.new
-      proj.pivotal_id = params[:project_id].to_s
-      proj.event_id = "LOCKED"
-      proj.save!
-      thr = Thread.new {
-        event = Google::Apis::CalendarV3::Event.new({
-          summary: 'Planning Poker Meeting',
-          start: {
-            date_time: Time.now.iso8601,
-            time_zone: 'America/Los_Angeles',
-          },
-          end: {
-            date_time: (Time.now + 120*60).iso8601,
-            time_zone: 'America/Los_Angeles',
-          },
-          conference_data: {
-            create_request: {request_id: (0...8).map { ('a'..'z').to_a[rand(26)] }.join}
-          }
-        })
-
-        $service.request_options.retries = 5
-        result = $service.insert_event($calendar_id, event, conference_data_version: 1)
-
-        proj.event_id = result.id
-        proj.save!
-      }
-    end
-    redirect_to "/"
+  def get_hangouts_link
+    Project.create_hangout(params[:project_id])
+    redirect_to root_path
   end
 
 protected

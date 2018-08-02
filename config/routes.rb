@@ -22,4 +22,5 @@ Rails.application.routes.draw do
     get '/makehangout', action: :get_hangouts_link
   end
 
+  resources :activities, only: [:index, :show, :create, :destroy]
 end

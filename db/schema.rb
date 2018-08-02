@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(version: 20180801063748) do
     t.string   "event_id"
   end
 
+  create_table "activities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "vote_id"
+    t.integer  "project_id"
+    t.integer  "story_id"
+    t.string   "activity_type"
+    t.text     "activity_data"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id"
+  add_index "activities", ["vote_id"], name: "index_activities_on_vote_id"
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  after_action :record_activity
 
   def favicon
     redirect_to '/assets/favicon.ico'
@@ -30,6 +31,25 @@ class ApplicationController < ActionController::Base
   def rescue_steps(message)
     reset_session
     redirect_to login_path, alert: message
+  end
+
+  def record_activity
+    activity_param = {
+        activity_type: "#{params[:controller]}\##{params[:action]}",
+        user_id: current_user.nil? ? nil : current_user[:id],
+    }
+
+    if params[:action].eql? 'project'
+      activity_param[:project_id] = params[:id].to_i
+    end
+
+    if @resource
+      activity_param.update({
+        story_id: @resource.key?(:story_id) ?  @resource[:story_id] : @resource[:id],
+        activity_data: @resource.to_json
+      })
+    end
+    Activity.create activity_param
   end
 
   # rescue_from !client do |exception|

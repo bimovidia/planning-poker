@@ -98,6 +98,11 @@ When contributing, you will need to:
 * when fixing a bug, provide a failing test case that your patch solves
 * provide proper documentation when necessary
 
+## Google Hangouts Link Addendum
+When the user wants to create an associated Google Hangout, they will click a link in the project page to do so. When they have clicked this link, we will asynchronously create a Google Meet link for them that they can use - this link will be the same for anyone accessing the same project. We will store this link for anyone that accesses this project's page on our app. Once a user requests a Google Meet link this link will be dedicated for their project permanently (as Google does not delete their links). In addition, we will have a locking mechanism when clicking on the link to prevent a TOCTTOU.
+
+There will be one new controller method that will be in charge of this - mostly everything else will stay the same. We will also have one new db table that will keep track of locks and one new db table to keep track of the mapping of Google Meet links to Tracker projects.
+
 ## Copyright
 
 Planning Poker is licensed under the [MIT License](http://opensource.org/licenses/mit-license.html)

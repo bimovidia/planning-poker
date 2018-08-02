@@ -71,7 +71,7 @@
           </div>
         <% else %>
             <% icon_and_link = Project.get_hangout_join_icon(project) %>
-            <%= link_to image_tag(icon_and_link[0]) + "Join Hangout here", icon_and_link[1], target: :_blank %>
+            <%= link_to image_tag(icon_and_link[0], :size => '128x128') + "Join Hangout here", icon_and_link[1], style: 'font-size:150%;', class: 'css_class', target: :_blank %>
         <% end %>
           
       </div>

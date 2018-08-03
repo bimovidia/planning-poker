@@ -10,9 +10,3 @@
 <div id="sidebar" class="col-md-4">
   <%= render 'dashboard/stories/project', project: @projects.first unless @projects.blank? %>
 </div>
-
-<script>
-   window.onload = function() {
-    window.filterState('#sub-menu li.selected');
-   };
-</script>

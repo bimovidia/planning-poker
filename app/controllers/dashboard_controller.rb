@@ -40,12 +40,17 @@ class DashboardController < ApplicationController
 
   def index
     @projects = @client.projects
+    if session[:last_project]
+      curr_proj = @client.project(session[:last_project])
+      @projects.unshift @projects.delete(curr_proj)
+    end
+    session[:last_project] = @projects.first.id
   end
 
   # Ajax
   def project
     @project = @client.project(params[:id].to_i)
-
+    session[:last_project] = params[:id].to_i
     respond_with @project do |format|
       format.js { render 'dashboard/ajax/project' }
     end

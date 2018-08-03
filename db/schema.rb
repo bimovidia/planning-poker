@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20180801063748) do
 
-  create_table "projects", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "pivotal_id"
-    t.string   "event_id"
-  end
-
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "vote_id"
@@ -33,6 +26,13 @@ ActiveRecord::Schema.define(version: 20180801063748) do
 
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"
   add_index "activities", ["vote_id"], name: "index_activities_on_vote_id"
+
+  create_table "projects", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "pivotal_id"
+    t.string   "event_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"

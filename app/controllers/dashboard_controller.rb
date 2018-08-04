@@ -44,9 +44,6 @@ class DashboardController < ApplicationController
       curr_proj = @client.project(session[:last_project])
       @projects.unshift @projects.delete(curr_proj)
     end
-    if @projects && !@projects.empty?
-      session[:last_project] = @projects.first.id
-    end
   end
 
   # Ajax

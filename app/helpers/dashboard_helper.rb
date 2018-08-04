@@ -110,7 +110,11 @@ module DashboardHelper
   end
 
   def get_initial_display(story)
-    estimated?(story) ? 'none' : 'block'
+    if estimation_class(story) == "unestimated"
+      return "block"
+    else
+      return "none"
+    end
   end
 
 end

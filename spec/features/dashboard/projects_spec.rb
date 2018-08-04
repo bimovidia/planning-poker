@@ -23,6 +23,7 @@ describe 'Dashboard::Projects', type: :feature do
       visit root_path
     end
 
+    specify { expect(page).to have_css('li.selected', text: "UNESTIMATED") }
     specify { expect(project_nodes.size).to eq 5}
     specify { expect(story_nodes.size).to eq 10}
     specify { expect(page).to have_content project.name }

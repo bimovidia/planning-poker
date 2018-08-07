@@ -250,4 +250,24 @@ describe DashboardController, type: :controller do
     end
   end
 
+  describe "GET get_hangouts_link" do
+    let(:params) {{
+      project_id: 1,
+    }}
+
+    before do
+      $service = mock("$service")
+      $service.stubs(:insert_event).returns({:id => "abcd"})
+      end
+
+    it "should call on Project#create_hangout" do
+      Project.expects(:create_hangout)
+      get :get_hangouts_link, params, valid_session
+    end
+    it "should redirect to correct page after starting process" do
+      get :get_hangouts_link, params, valid_session
+      expect(response).to redirect_to :root
+    end
+  end
+
 end

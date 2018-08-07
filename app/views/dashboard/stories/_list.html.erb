@@ -1,5 +1,5 @@
 <% project.stories.each do |story| %>
-  <div id="story-<%= story.id %>" class="story clearfix story-<%= story.current_state %> story-<%= story.story_type %> story-<%= estimation_class(story) %>">
+  <div id="story-<%= story.id %>" class="story clearfix story-<%= story.current_state %> story-<%= story.story_type %> story-<%= estimation_class(story) %>" style="display:<%= get_initial_display(story) %>">
     <div class="story-overview clearfix">
       <div class="pull-left story-icons">
         <%= link_to detail_path(story.id, 'expand', encoded_user), id: "expand-#{story.id}", remote: true do %>

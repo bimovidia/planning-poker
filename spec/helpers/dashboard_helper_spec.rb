@@ -242,4 +242,19 @@ describe DashboardHelper, type: :helper do
       expect(helper.unestimateable?(story)).to be false
     end
   end
+
+  context '#get_initial_display' do
+    it "should return true" do
+      helper.stubs(:estimation_class).returns("unestimated")
+      expect(helper.get_initial_display(story)).to eq "block"
+    end
+
+    it "should return false" do
+      helper.stubs(:estimation_class).returns("unestimateable")
+      expect(helper.get_initial_display(story)).to eq "none"
+
+      helper.stubs(:estimation_class).returns("estimated")
+      expect(helper.get_initial_display(story)).to eq "none"
+    end
+  end
 end

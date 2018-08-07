@@ -109,4 +109,12 @@ module DashboardHelper
     Vote.where(story_id: story.id, user: current_user['username']).present?
   end
 
+  def get_initial_display(story)
+    if estimation_class(story) == "unestimated"
+      return "block"
+    else
+      return "none"
+    end
+  end
+
 end

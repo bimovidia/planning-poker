@@ -33,4 +33,23 @@ describe 'Dashboard::Projects', type: :feature do
     specify { expect(page).to have_content project.point_scale.split(',').join(', ') }
   end
 
+  context 'open last opened project' do
+    let(:projects) { (1..5).map { |i| init_object(project_params) }}
+    let(:project1)  { projects.first }
+    let(:project2)  { projects.second }
+
+    before do
+      stub_projects(projects)
+      stub_stories(project1)
+      stub_stories(project2)
+      page.set_rack_session(last_project: project2.id)
+      @client.stubs(:project).returns(project2)
+      visit root_path
+    end
+
+    specify { expect(page).to have_content project2.name }
+    specify { expect(page).to have_content "Averaged over #{project2.velocity_averaged_over} weeks" }
+
+  end
+
 end

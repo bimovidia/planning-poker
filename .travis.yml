@@ -4,6 +4,7 @@ rvm:
 before_install:
 - openssl aes-256-cbc -K $encrypted_4b9de5dd82ab_key -iv $encrypted_4b9de5dd82ab_iv
   -in secrets.tar.enc -out secrets.tar -d
+- tar xvf secrets.tar
 script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare

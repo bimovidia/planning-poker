@@ -43,6 +43,8 @@ group :test do
   gem 'simplecov', require: false
   gem 'mocha', require: false
   gem 'zeus', require: false
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels' # basic imperative step defs
 end
 
 group :development do

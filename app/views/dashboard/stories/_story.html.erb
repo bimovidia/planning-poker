@@ -27,8 +27,14 @@
     </div>
 
     <% unless unestimateable?(story) %>
-      <div class="timer" style="height: 500px;">
-        <iframe width="750" height="400" src="about:blank" style="-webkit-transform: scale(0.5, 0.6); -webkit-transform-origin: 0 0;"></iframe>
+      <div class="col-md-12" id="timer">
+        <div class="col-md-4">
+          Discussion timer, click to proceed:
+          <%= link_to t("Proceed to voting"), discussion_path(story.id), class: 'btn btn-info', remote: true %>
+        </div>
+        <div class="col-md-8" >
+          <iframe width="850" height="415" src="about:blank" style="-webkit-transform: scale(0.5, 0.6); -webkit-transform-origin: 0 0;"></iframe>
+        </div>
       </div>
       <div id="votes-<%= story.id %>" class="col-md-12" style="display:none">
         <%= render 'dashboard/stories/cards', project: project, story: story, reveal: false %>

@@ -104,6 +104,16 @@ class DashboardController < ApplicationController
     end
   end
 
+  def discussion
+    @resource = {
+      story_id: params[:story_id]
+    }
+
+    respond_with @resource do |format|
+      format.js { render 'dashboard/ajax/discussion' }
+    end
+  end
+
   def update
     params[:client] = @client
     @resource = Story.update(params)
@@ -128,6 +138,7 @@ class DashboardController < ApplicationController
     Project.create_hangout(params[:project_id])
     redirect_to root_path
   end
+
 
 protected
 

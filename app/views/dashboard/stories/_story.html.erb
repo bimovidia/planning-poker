@@ -27,12 +27,12 @@
     </div>
 
     <% unless unestimateable?(story) %>
-      <div class="timer">
-        <iframe src="about:blank"></iframe>
+      <div class="timer" style="height: 500px;">
+        <iframe width="750" height="400" src="about:blank" style="-webkit-transform: scale(0.5, 0.6); -webkit-transform-origin: 0 0;"></iframe>
       </div>
-      <!-- <div id="votes-<%= story.id %>" class="col-md-12">
+      <div id="votes-<%= story.id %>" class="col-md-12" style="display:none">
         <%= render 'dashboard/stories/cards', project: project, story: story, reveal: false %>
-      </div> -->
+      </div>
       <%= hidden_field_tag 'estimate', nil, name: 'story[estimate]' %>
 
       <div class="col-md-12 story-actions">

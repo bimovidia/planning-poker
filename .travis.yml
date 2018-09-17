@@ -5,7 +5,14 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_4b9de5dd82ab_key -iv $encrypted_4b9de5dd82ab_iv
   -in secrets.tar.enc -out secrets.tar -d
 - tar xvf secrets.tar
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+before_script:
+- ./cc-test-reporter before-build
 script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
 - bundle exec rspec
+after_script:
+- ./cc-test-reporter after-build --exit-code $EXIT_CODE
+

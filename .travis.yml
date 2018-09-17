@@ -1,6 +1,9 @@
 language: ruby
 rvm:
 - 2.2.2
+env:
+  global:
+    - CC_TEST_REPORTER_ID=45efa03f9150107656ff1bf2089f9cf78b89adc343e97217995d76fb6d8961b0
 before_install:
 - openssl aes-256-cbc -K $encrypted_4b9de5dd82ab_key -iv $encrypted_4b9de5dd82ab_iv
   -in secrets.tar.enc -out secrets.tar -d
@@ -14,5 +17,5 @@ script:
 - bundle exec rake db:test:prepare
 - bundle exec rspec
 after_script:
-- ./cc-test-reporter after-build --exit-code $EXIT_CODE
+- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 

@@ -28,11 +28,11 @@
 
     <% unless unestimateable?(story) %>
       <div class="col-md-12" id="timer">
-        <div class="col-md-4">
-          Discussion timer, click to proceed:
+        <div class="col-md-4" style="font-size: 30px">
+          Discussion timer: <br> Please discuss this story. Click to proceed to voting when you are finished discussing. <br>
           <%= link_to t("Proceed to voting"), discussion_path(story.id), class: 'btn btn-info', remote: true %>
         </div>
-        <div class="col-md-8" >
+        <div class="col-md-8" style="max-height: 250px; ">
           <iframe width="850" height="415" src="about:blank" style="-webkit-transform: scale(0.5, 0.6); -webkit-transform-origin: 0 0;"></iframe>
         </div>
       </div>

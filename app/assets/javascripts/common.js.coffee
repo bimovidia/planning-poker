@@ -48,6 +48,7 @@ fayeSubscribers = ->
       fayeSetup().subscribe '/planning-poker/story/reveal-votes', (data) -> eval(data)
       fayeSetup().subscribe '/planning-poker/story/update-story', (data) -> eval(data)
       fayeSetup().subscribe '/planning-poker/story/toggle-voters', (data) -> eval(data)
+      fayeSetup().subscribe '/planning-poker/story/discussion-timer', (data) -> eval(data)
 
 window.hideOverlay = hideOverlay
 window.activeVote  = activeVote

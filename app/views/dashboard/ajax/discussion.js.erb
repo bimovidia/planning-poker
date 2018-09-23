@@ -1,0 +1,4 @@
+<% broadcast '/planning-poker/story/discussion-timer' do %>
+  $('#expand-<%= @resource[:story_id] %>').closest('.story-overview').siblings().find("#timer")[0].style = "display:none";
+  $('#expand-<%= @resource[:story_id] %>').closest('.story-overview').siblings().find("#votes-<%= @resource[:story_id] %>")[0].style = "";
+<% end %>

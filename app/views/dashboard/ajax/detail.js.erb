@@ -1,7 +1,10 @@
 <% if @resource[:toggle] == 'expand' %>
-  $('#expand-<%= @resource[:story_id] %>').closest('.story-overview').hide().siblings().show();
+  $('#expand-<%= @resource[:story_id] %>').closest('.story-overview').hide().siblings().show().find("#timer").show();
+  $('#expand-<%= @resource[:story_id] %>').closest('.story-overview').siblings().find("#timer")[0].children[1].children[0].src = "https://www.cs.hmc.edu/~geoff/countdown.html?timeLeftMinutes=5&timeLeftSeconds=00&roundTo=1&warnTime=60&warnRoundTo=5&alarmTime=30&alarmRoundTo=1&doneBlink=true&showNegative=true&fontSize=256&fontUnit=pt&timerFont=sans-serif&normalForeColor=navy&normalBackColor=palegreen&warnForeColor=navy&warnBackColor=yellow&alarmForeColor=white&alarmBackColor=red&warnBeeps=0&warnBeepFreq=440&warnBeepDuration=200&alarmBeeps=0&alarmBeepFreq=440&alarmBeepDuration=200&doneBeeps=0&doneBeepFreq=440&doneBeepDuration=200";
+  $('#expand-<%= @resource[:story_id] %>').closest('.story-overview').siblings().find("#votes-<%= @resource[:story_id] %>")[0].style = "display:none";
 <% else %>
   $('#collapse-<%= @resource[:story_id] %>').closest('.story-detail').hide().siblings().show();
+
 <% end %>
 
 <% broadcast '/planning-poker/story/toggle-voters' do %>

@@ -189,6 +189,17 @@ describe DashboardController, type: :controller do
     end
   end
 
+  describe "GET discussion" do
+    let(:params) {{ 
+      story_id: '123'
+    }}
+
+    it "should render ajax discussion" do
+      xhr :get, :discussion, params, valid_session, format: :js
+      expect(response).to render_template 'dashboard/ajax/discussion'
+    end
+  end
+
   describe 'POST update' do
     let(:params) {{
       'id'         => '1',

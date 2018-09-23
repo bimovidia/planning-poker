@@ -27,7 +27,16 @@
     </div>
 
     <% unless unestimateable?(story) %>
-      <div id="votes-<%= story.id %>" class="col-md-12">
+      <div class="col-md-12" id="timer">
+        <div class="col-md-4" style="font-size: 30px">
+          Discussion timer: <br> Please discuss this story. Click to proceed to voting when you are finished discussing. <br>
+          <%= link_to t("Proceed to voting"), discussion_path(story.id), class: 'btn btn-info', remote: true %>
+        </div>
+        <div class="col-md-8" style="max-height: 250px; " id="timer_iframe">
+          <iframe width="850" height="415" src="about:blank" style="-webkit-transform: scale(0.5, 0.6); -webkit-transform-origin: 0 0;"></iframe>
+        </div>
+      </div>
+      <div id="votes-<%= story.id %>" class="col-md-12" style="display:none">
         <%= render 'dashboard/stories/cards', project: project, story: story, reveal: false %>
       </div>
       <%= hidden_field_tag 'estimate', nil, name: 'story[estimate]' %>

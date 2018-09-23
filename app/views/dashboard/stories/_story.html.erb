@@ -32,7 +32,7 @@
           Discussion timer: <br> Please discuss this story. Click to proceed to voting when you are finished discussing. <br>
           <%= link_to t("Proceed to voting"), discussion_path(story.id), class: 'btn btn-info', remote: true %>
         </div>
-        <div class="col-md-8" style="max-height: 250px; ">
+        <div class="col-md-8" style="max-height: 250px; " id="timer_iframe">
           <iframe width="850" height="415" src="about:blank" style="-webkit-transform: scale(0.5, 0.6); -webkit-transform-origin: 0 0;"></iframe>
         </div>
       </div>

@@ -36,7 +36,7 @@ gem 'rspec-rails', '~> 3.6.1', group: [:test, :development]
 group :test do
   gem 'factory_bot_rails'
   gem 'forgery'
-  gem 'capybara'
+  gem 'capybara', "2.4.4"
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'rack_session_access'
@@ -51,10 +51,10 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'capistrano', '~> 3.0', require: false
-  gem 'capistrano-rails', '~> 1.1', require: false
-  gem 'capistrano-bundler', '~> 1.1', require: false
-  gem 'capistrano-rvm', '~> 0.1', require: false
+  # gem 'capistrano', ' 3.0', require: false
+  # gem 'capistrano-rails', '1.1', require: false
+  # gem 'capistrano-bundler', '~> 1.1', require: false
+  # gem 'capistrano-rvm', '~> 0.1', require: false
 end
 
 gem 'jbuilder', '~> 2.0'

@@ -36,4 +36,26 @@ class Project < ActiveRecord::Base
           }
         end
     end
+
+    def self.get_milestones(project)
+      unplanned = project.stories(filter: 'story_type:release current_state:unscheduled')
+      unstarted = project.stories(filter: 'story_type:release current_state:unstarted')
+
+      #Find release date for unstarted
+      deadlines = unstarted.map(&:deadline)
+      unstarted = unstarted.map(&:name)
+      unstarted_deadlines = unstarted.zip(deadlines)
+
+      unplanned = unplanned.map(&:name)
+
+      unstarted_deadlines_appended = []
+      for pair in unstarted_deadlines
+        unstarted_deadlines_appended << pair.join(": ")
+      end
+
+      retVal = unstarted_deadlines_appended.join("\n")
+      retVal += "\n"
+      retVal += unplanned.join("\n")
+      return retVal
+    end
 end

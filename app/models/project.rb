@@ -42,15 +42,16 @@ class Project < ActiveRecord::Base
       unstarted = project.stories(filter: 'story_type:release current_state:unstarted')
 
       # Combine unplanned and unstarted
-      total_milestones = [unplanned, unstarted].flatten
+      total_milestones = unplanned + unstarted
 
       milestone_names = total_milestones.map(&:name)
       milestone_deadlines = total_milestones.map(&:deadline)
+      # print(milestoned_dateeadlines)
       milestone_deadlines = milestone_deadlines.map do |e| 
         if (not e)
           nil
         else
-          BigDecimal.new(((e - DateTime.now)/86400), 0).round(0, :up).to_i
+          BigDecimal.new(((e - DateTime.now)), 0).round(0, :up).to_i
         end
       end
 

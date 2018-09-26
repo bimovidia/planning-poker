@@ -82,7 +82,7 @@
           <%= "Milestones" %>
         </div>
         <div class="col-md-8">
-          <%= Project.get_milestones(project) %>
+          <%= simple_format(Project.get_milestones(project)) %>
         </div>
       </div>
     </li>

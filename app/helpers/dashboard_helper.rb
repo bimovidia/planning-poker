@@ -31,7 +31,7 @@ module DashboardHelper
   end
 
   def estimation_class(story)
-    if type_chore?(story)
+    if type_chore?(story) or type_release?(story)
       'unestimateable'
     else
       (story.estimate and story.estimate.to_i >= 0) ? 'estimated' : 'unestimated'

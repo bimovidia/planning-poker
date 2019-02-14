@@ -166,6 +166,7 @@ describe DashboardController, type: :controller do
     let(:params) {{ 
       story_id: '123'
     }}
+    before { DashboardController.any_instance.stubs(:record_reveal) }
 
     it 'should assign resource' do
       xhr :get, :reveal, params, valid_session, format: :js
@@ -185,6 +186,11 @@ describe DashboardController, type: :controller do
                     story_id: '123',
                     activity_data: {story_id: '123'}.to_json
                 })
+      xhr :get, :reveal, params, valid_session, format: :js
+    end
+
+    it 'should call record_reveal' do
+      DashboardController.any_instance.expects(:record_reveal)
       xhr :get, :reveal, params, valid_session, format: :js
     end
   end
@@ -238,6 +244,7 @@ describe DashboardController, type: :controller do
       story_id: '123',
       username: 'username'
     }}
+    before { DashboardController.any_instance.stubs(:record_select) }
 
     it 'should assign resource' do
       xhr :post, :select, params, valid_session, format: :js
@@ -257,6 +264,11 @@ describe DashboardController, type: :controller do
                     story_id: '123',
                     activity_data: {story_id: '123', username: 'username'}.to_json
                 })
+      xhr :post, :select, params, valid_session, format: :js
+    end
+
+    it 'should call record_select' do
+      DashboardController.any_instance.expects(:record_select)
       xhr :post, :select, params, valid_session, format: :js
     end
   end

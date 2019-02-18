@@ -51,7 +51,14 @@ describe Project, type: :model do
         end
         it "returns milestones in a certain order and format" do
             retVal = Project.get_milestones(project)
-            assert_equal retVal, "story2: 0 Day(s) Away\n\nstory3: 4 Day(s) Away\n\nstory1: -3 Day(s) Ago\n\nstory4: Unscheduled\n\nstory5: Unscheduled"
+            if retVal == "story2: 0 Day(s) Away\n\nstory3: 4 Day(s) Away\n\nstory1: -3 Day(s) Ago\n\nstory4: Unscheduled\n\nstory5: Unscheduled" or
+            retVal == "story2: 0 Day(s) Away\n\nstory3: 4 Day(s) Away\n\nstory1: -3 Day(s) Ago\n\nstory5: Unscheduled\n\nstory4: Unscheduled"
+                eq = true
+            else
+                eq = false
+            end
+
+            assert_equal eq, true
         end
     end
 end

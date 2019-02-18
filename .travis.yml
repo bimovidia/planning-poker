@@ -5,8 +5,7 @@ env:
   global:
     - CC_TEST_REPORTER_ID=45efa03f9150107656ff1bf2089f9cf78b89adc343e97217995d76fb6d8961b0
 before_install:
-- openssl aes-256-cbc -K $encrypted_4b9de5dd82ab_key -iv $encrypted_4b9de5dd82ab_iv
-  -in secrets.tar.enc -out secrets.tar -d
+- openssl aes-256-cbc -K $encrypted_7c2e156b9fe4_key -iv $encrypted_7c2e156b9fe4_iv -in secrets.tar.enc -out secrets.tar -d
 - tar xvf secrets.tar
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter

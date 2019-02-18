@@ -109,6 +109,14 @@ module DashboardHelper
     Vote.where(story_id: story.id, user: current_user['username']).present?
   end
 
+  def should_display_button?(story)
+    if current_user_has_voted?(story)
+      return "block"
+    else
+      return "none"
+    end
+  end
+
   def get_initial_display(story)
     if estimation_class(story) == "unestimated"
       return "block"

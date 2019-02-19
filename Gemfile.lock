@@ -338,7 +338,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -421,7 +420,6 @@ DEPENDENCIES
   selenium-webdriver
   simplecov
   spring
-  sqlite3
   therubyracer
   thin
   tracker_api

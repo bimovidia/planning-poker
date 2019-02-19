@@ -40,6 +40,7 @@ Rails.application.configure do
   config.publisher = {
     # development faye server
     domain: 'localhost:9292',
+    # domain: '3.90.64.98:9292',
     # secret key
     secret: 'secret'
   }
